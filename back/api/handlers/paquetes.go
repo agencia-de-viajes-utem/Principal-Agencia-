@@ -74,8 +74,8 @@ func ObtenerPaquetes(w http.ResponseWriter, r *http.Request) {
         WHERE 
             ao.id = $1
             AND ad.id = $2
-            AND fp.fechaInit >= $3
-            AND fp.fechaFin <= $4
+            AND fp.fechaInit = $3
+            AND fp.fechaFin = $4
     `, origenID, destinoID, fechaInicio, fechaFin)
 	if err != nil {
 		http.Error(w, "Error al consultar la base de datos", http.StatusInternalServerError)
