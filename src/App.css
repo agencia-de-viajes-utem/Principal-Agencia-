@@ -3,3 +3,25 @@
   background-color: #f8f9fa !important;
 }
 
+.search-group{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50vw;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.input-group{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.buscar{
+  width: 100px;
+}
+
+
