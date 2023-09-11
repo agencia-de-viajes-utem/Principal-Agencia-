@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Typeahead } from 'react-bootstrap-typeahead';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
+import '../styles/AirportSearch.css'
 
 function AirportSearch({ className, onAirportSelect }) {
   const [options, setOptions] = useState([]);

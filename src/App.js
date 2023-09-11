@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-
+import './styles/fonts.css'
 import NavBar from './components/navBar';
 import AirportSearch from './components/AirportSearch';
 import Button from 'react-bootstrap/Button';
@@ -19,13 +19,38 @@ function App() {
   const [showMonthView, setShowMonthView] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState([]);
   const [paquetesFetched, setPaquetesFetched] = useState(false);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const calendarRef = useRef(null);
+  const [numberOfPeople, setNumberOfPeople] = useState('');
+
+  // Event listener para cerrar el calendario cuando se hace clic fuera de él
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (calendarRef.current && !calendarRef.current.contains(event.target)) {
+        setShowCalendar(false);
+      }
+    }
+
+    // Agregar el event listener cuando el calendario está abierto
+    if (showCalendar) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      // Quitar el event listener cuando el calendario está cerrado
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      // Asegurarse de quitar el event listener cuando se desmonta el componente
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showCalendar]);
 
   const handleBuscarClick = async () => {
     if (!origen || origen.length === 0 || !destino || destino.length === 0) {
       alert('Por favor, selecciona tanto el origen como el destino.');
       return;
     }
-  
+
     if (showMonthView) {
       // Manejar lógica cuando está en vista de año (year)
       // Por ejemplo, puedes mostrar una alerta con el mes seleccionado
@@ -34,14 +59,14 @@ function App() {
         return;
       }
       console.log('Mes seleccionado en vista de año:', selectedMonth);
-  
+
       // Realizar la solicitud a la API en la vista de año
       const origenId = origen[0].id;
       const destinoId = destino[0].id;
       const mesSeleccionado = selectedMonth.split('-')[1]; // Extraer el mes de selectedMonth
-  
+
       setIsLoading(true);
-  
+
       try {
         const response = await fetch(
           `http://localhost:8080/paquetes/mes?origen=${origenId}&destino=${destinoId}&mes=${mesSeleccionado}`
@@ -67,7 +92,7 @@ function App() {
         alert('Por favor, selecciona las fechas deseadas.');
         return;
       }
-  
+
       const formattedDates = selectedDates.map((date) => {
         date.setHours(0, 0, 0, 0);
         const year = date.getFullYear();
@@ -75,14 +100,14 @@ function App() {
         const day = String(date.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
       });
-  
+
       const origenId = origen[0].id;
       const destinoId = destino[0].id;
       const fechaInicio = formattedDates[0];
       const fechaFin = formattedDates[formattedDates.length - 1];
-  
+
       setIsLoading(true);
-  
+
       try {
         console.log(origenId, destinoId, fechaInicio, fechaFin)
         const response = await fetch(
@@ -106,6 +131,10 @@ function App() {
     }
   };
 
+  const toggleCalendar = () => {
+    setShowCalendar(!showCalendar);
+  };
+
   const handleDateChange = (date) => {
     setSelectedDates(date);
   };
@@ -125,53 +154,108 @@ function App() {
     console.log(month);
   };
 
+  const formatDate = (date) => {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = String(date.getFullYear()).slice(2);
+    return `${day}/${month}/${year}`;
+  };
+
   return (
     <div className="App">
       <NavBar />
-      <div className="search-group">
-        <div className="input-group">
-          <AirportSearch
-            className="origen"
-            onAirportSelect={(selected) => setOrigen(selected)}
-          />
-          <AirportSearch
-            className="destino"
-            onAirportSelect={(selected) => setDestino(selected)}
-          />
+      <div className="search-group" style={{ position: "relative" }}>
+        {/* Inicio HTML de las nubes */}
+        <div id="background-wrap">
+          <div class="x1">
+            <div class="cloud nube1"></div>
+          </div>
+          <div class="x2">
+            <div class="cloud nube2"></div>
+          </div>
+          <div class="x3">
+            <div class="cloud nube3"></div>
+          </div>
+          <div class="x4">
+            <div class="cloud nube4"></div>
+          </div>
         </div>
-        <div className="calendar-container">
-          <Calendar 
-            onChange={handleDateChange}
-            value={selectedDates}
-            selectRange={showMonthView ? false : true}
-            view={showMonthView ? "year" : undefined}
-            onClickMonth={handleMonthClick}
-          />
-          <Form.Check
-            type="checkbox"
-            label="Vista mes"
-            checked={showMonthView}
-            onChange={handleCheckboxChange}
-          />
+        {/* Fin del HTML de las nubes */}
+        <h2 className='h2-busqueda elemento-encima'> ¡Comience a Explorar! </h2>
+        <div className="input-group">
+          <div className='input-aeropuerto'>
+            <AirportSearch
+              className="origen input-style elemento-encima"
+              onAirportSelect={(selected) => setOrigen(selected)}
+            />
+            <AirportSearch
+              className="destino input-style elemento-encima"
+              onAirportSelect={(selected) => setDestino(selected)}
+            />
+          </div>
+          <div className="date-input-container">
+            <input
+              className="input-style elemento-encima"
+              type="text"
+              placeholder="Fecha Origen - Salida"
+              value={
+                selectedDates.length === 2
+                  ? `${formatDate(selectedDates[0])} - ${formatDate(
+                    selectedDates[1]
+                  )}`
+                  : selectedDates.length === 1
+                    ? formatDate(selectedDates[0])
+                    : selectedMonth
+              }
+              onClick={toggleCalendar}
+            />
+            {showCalendar && (
+              <div className="calendar-container" ref={calendarRef}>
+                <Calendar
+                  onChange={handleDateChange}
+                  value={selectedDates}
+                  selectRange={showMonthView ? false : true}
+                  view={showMonthView ? "year" : undefined}
+                  onClickMonth={handleMonthClick}
+                />
+                <Form.Check
+                  type="checkbox"
+                  label={"Selección por mes"}
+                  checked={showMonthView}
+                  onChange={handleCheckboxChange}
+                />
+              </div>
+            )}
+          </div>
+          <div className="people-input-container elemento-encima">
+            <input
+              className="input-style"
+              type="number"
+              placeholder='Número de personas'
+              value={numberOfPeople}
+              onChange={(e) => setNumberOfPeople(e.target.value)}
+            />
+          </div>
         </div>
         <Button className="buscar" variant="primary" onClick={handleBuscarClick}>
-          Buscar
+          BUSCAR
         </Button>
-        {isLoading && <div>Cargando...</div>}
-        {paquetesFetched && paquetes.length === 0 && (
-          <div className="no-paquetes">
-            No se encontraron paquetes en esa fecha o mes seleccionado.
-          </div>
-        )}
-        {paquetes.length > 0 && (
-          <div className="paquetes">
-            <h2>Paquetes Disponibles:</h2>
-            <pre>{JSON.stringify(paquetes, null, 2)}</pre>
-          </div>
-        )}
       </div>
+      {isLoading && <div>Cargando...</div>}
+      {paquetesFetched && paquetes.length === 0 && (
+        <div className="no-paquetes">
+          No se encontraron paquetes en esa fecha o mes seleccionado.
+        </div>
+      )}
+      {paquetes.length > 0 && (
+        <div className="paquetes">
+          <h2>Paquetes Disponibles:</h2>
+          <pre>{JSON.stringify(paquetes, null, 2)}</pre>
+        </div>
+      )}
     </div>
   );
+
 }
 
 export default App;
