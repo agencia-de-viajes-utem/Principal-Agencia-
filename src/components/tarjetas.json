@@ -1,0 +1,52 @@
+[
+    {
+      "title": "París",
+      "imageSrc": "https://media.staticontent.com/media/pictures/05563c0b-f169-4424-b83f-044404c73d2f/300x200",
+      "description": "Hotel+Vuelo",
+      "price": "$1,000,000"
+    },
+    {
+      "title": "Roma",
+      "imageSrc": "https://media.staticontent.com/media/pictures/05563c0b-f169-4424-b83f-044404c73d2f/300x200",
+      "description": "Hotel+Vuelo",
+      "price": "$1,100,000"
+    },
+    {
+      "title": "Nueva York",
+      "imageSrc": "https://media.staticontent.com/media/pictures/05563c0b-f169-4424-b83f-044404c73d2f/300x200",
+      "description": "Hotel+Vuelo",
+      "price": "$1,200,000"
+    },
+
+    {
+      "title": "Nueva York",
+      "imageSrc": "https://media.staticontent.com/media/pictures/05563c0b-f169-4424-b83f-044404c73d2f/300x200",
+      "description": "Hotel+Vuelo",
+      "price": "$1,200,000"
+    },
+    {
+      "title": "Nueva York",
+      "imageSrc": "https://media.staticontent.com/media/pictures/05563c0b-f169-4424-b83f-044404c73d2f/300x200",
+      "description": "Hotel+Vuelo",
+      "price": "$1,200,000"
+    },
+    {
+      "title": "Nueva York",
+      "imageSrc": "https://media.staticontent.com/media/pictures/05563c0b-f169-4424-b83f-044404c73d2f/300x200",
+      "description": "Hotel+Vuelo",
+      "price": "$1,200,000"
+    },
+    {
+      "title": "Nueva York",
+      "imageSrc": "https://media.staticontent.com/media/pictures/05563c0b-f169-4424-b83f-044404c73d2f/300x200",
+      "description": "Hotel+Vuelo",
+      "price": "$1,200,000"
+    },
+    {
+      "title": "Nueva York",
+      "imageSrc": "https://media.staticontent.com/media/pictures/05563c0b-f169-4424-b83f-044404c73d2f/300x200",
+      "description": "Hotel+Vuelo",
+      "price": "$1,200,000"
+    }
+
+]

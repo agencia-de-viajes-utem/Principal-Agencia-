@@ -240,7 +240,10 @@ function App() {
         <Button className="buscar" variant="primary" onClick={handleBuscarClick}>
           BUSCAR
         </Button>
+
+        
       </div>
+      <div className="ofertas"> <OfferCarousel /> </div>
       {isLoading && <div>Cargando...</div>}
       {paquetesFetched && paquetes.length === 0 && (
         <div className="no-paquetes">

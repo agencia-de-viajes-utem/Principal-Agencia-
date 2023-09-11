@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
 
-function BasicExample() {
+
+function OfferCarousel() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
     // Simula una llamada a una API para obtener los datos del archivo JSON
-    fetch('src/assets/tarjetas.json')
+    fetch('src/components/tarjetas.json')
       .then((response) => response.json())
       .then((data) => setCards(data))
       .catch((error) => console.error('Error:', error));
@@ -69,4 +69,4 @@ function BasicExample() {
   );
 }
 
-export default BasicExample;
+export default OfferCarousel;
