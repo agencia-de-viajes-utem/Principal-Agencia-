@@ -8,6 +8,7 @@ import AirportSearch from './components/AirportSearch';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import OfferCarousel from './components/OfferCarousel';
 
 function App() {
   const [origen, setOrigen] = useState([]);
