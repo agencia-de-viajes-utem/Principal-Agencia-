@@ -23,10 +23,10 @@ jobs:
 
     - name: Build
       run: |
-        cd Vista-Agendamiento/back
+        cd back
         go build -v .
 
     - name: Test
       run: |
-        cd Vista-Agendamiento/back
+        cd back
         go test -v .
