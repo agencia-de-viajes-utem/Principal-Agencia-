@@ -1,15 +1,4 @@
-# For most projects, this workflow file will not need changing; you simply need
-# to commit it to your repository.
-#
-# You may wish to alter this file to override the set of languages analyzed,
-# or to provide custom queries or build logic.
-#
-# ******** NOTE ********
-# We have attempted to detect the languages in your repository. Please check
-# the `language` matrix defined below to confirm you have the correct set of
-# supported CodeQL languages.
-#
-name: "CodeQL"
+name: "CodeQL Process for GoLang"
 
 on:
   push:
@@ -22,7 +11,7 @@ on:
 
 jobs:
   analyze:
-    name: Analyze
+    name: Análisis
     # Runner size impacts CodeQL analysis time. To learn more, please see:
     #   - https://gh.io/recommended-hardware-resources-for-running-codeql
     #   - https://gh.io/supported-runners-and-hardware-resources
@@ -59,16 +48,7 @@ jobs:
 
         # For more details on CodeQL's query packs, refer to: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
         # queries: security-extended,security-and-quality
-
-
-    # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
-    # If this step fails, then you should remove it and run the build manually (see below)
-    # ℹ️ Command-line programs to run using the OS shell.
-    # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
-
-    #   If the Autobuild fails above, remove it and uncomment the following three lines.
-    #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
-    - name: Set up Go and test Go
+    - name: Setup & Build of Go
       uses: actions/setup-go@v4
       with:
         go-version: '1.21.1'
@@ -78,15 +58,14 @@ jobs:
         cd back
         go build -v .
 
-    - name: Test
-      run: |
-        cd back
-        go test -v .
-    # - run: |
-    #     echo "Run, Build Application using script"
-    #     ./location_of_script_within_repo/buildscript.sh
-
-    - name: Perform CodeQL Analysis
+    # - name: Test
+      # No se han configurado tests todavía así que este paso no realiza nada momentaneamente
+      # y se ha deshabilitado. queda pendiente desarrollar pruebas y que sean ejecutadas en esta acción.
+      #run: |
+       # cd back
+       # go test -v .
+        
+    - name: Realizar análisis con CodeQL
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{matrix.language}}"
