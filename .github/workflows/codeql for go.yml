@@ -74,3 +74,5 @@ jobs:
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{matrix.language}}"
+    #- name: NICO agrega tus weas aca de upload image y deploy aqui y en el otro yml
+      #uses: asdsdsdsdssd
