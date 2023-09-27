@@ -4,7 +4,8 @@
 }
 
 nav{
-    margin-bottom: 6em;
+    margin-top: 0 !important;
+    margin-bottom: 6em !important;
     font-weight: 700;
 }
 

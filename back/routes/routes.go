@@ -11,7 +11,7 @@ import (
 func ConfigureRoutes(r *mux.Router) {
 	// Habilitar CORS utilizando el paquete rs/cors solo para la ruta /aeropuertos
 	c := cors.New(cors.Options{
-		AllowedOrigins: []string{"http://localhost:3000"}, // Permite el acceso desde el puerto 5173
+		AllowedOrigins: []string{"http://localhost:5173"}, // Permite el acceso desde el puerto 5173
 		AllowedMethods: []string{"GET"},
 	})
 

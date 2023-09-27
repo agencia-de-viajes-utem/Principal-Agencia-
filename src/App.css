@@ -1,6 +1,9 @@
 .App {
   text-align: center;
   background-color: #f8f9fa !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .search-group{
@@ -201,7 +204,7 @@ animation: animateCloud 25s linear infinite;
 transform: scale(0.55);
 }
 
-/* OBJECTS */
+/* NUBES */
 
 .cloud {
 background: #fff;
@@ -253,4 +256,26 @@ width: 180px;
 height: 180px;
 right: 50px;
 top: -90px;
+}
+
+.container_buscador{
+  margin-bottom: 5em;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-footer{
+  background-color: #f8f9fa !important;
+  width: 100%;
+}
+
+.test{
+  display: flex;
+  justify-content: center;
+}
+
+.box{
+  width: 200px;
+  height: 20em;
+  background-color: #007a7e;
 }
