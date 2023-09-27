@@ -1,62 +1,95 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './OfferCarousel.css';
 
-
-function OfferCarousel() {
+function OfferCarouesel() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    // Simula una llamada a una API para obtener los datos del archivo JSON
-    fetch('src/components/tarjetas.json')
+    fetch('src/Components/tarjetas.json')
       .then((response) => response.json())
       .then((data) => setCards(data))
       .catch((error) => console.error('Error:', error));
   }, []);
 
+  
+
+  const chunkArray = (arr, chunkSize) => {
+    const chunkedArray = [];
+    for (let i = 0; i < arr.length; i += chunkSize) {
+      chunkedArray.push(arr.slice(i, i + chunkSize));
+    }
+    return chunkedArray;
+  };
+
+  const calculateCardsToShow = () => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth >= 1600) {
+      return 4;
+    }else if (screenWidth >= 1300) {
+      
+      return 3;
+    } else if (screenWidth >= 1043) {
+      return 2;
+    } else  {
+    
+      return 1;
+    }
+  };
+
+  const chunkedCards = chunkArray(cards,calculateCardsToShow());
+
   return (
-    <div className="container mt-5 d-flex">
-      <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
-        <div className="carousel-inner">
-          {cards.map((card, index) => (
-            <div key={card.id} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+    <div className="container mx-auto " style={{ }}>
+      <div id="myCarousel" className="carousel slide mx-auto" data-bs-ride="carousel"style={{width: "90vw"}}>
+        <div className="carousel-inner " role="listbox">
+          {chunkedCards.map((cardGroup, groupIndex) => (
+            <div
+              key={`carousel-item-${groupIndex}`}
+              className={`carousel-item ${groupIndex === 0 ? 'active' : ''}`}>
               <div className="row">
-                <div className="col-12 col-md-4 col-lg-3">
-                  <div
-                    className="card mb-3"
-                    style={{
-                      width: '300px',
-                      height: '500px',
-                      borderRadius: '8px',
-                    }}
-                  >
-                    <img
-                      src={card.imageSrc}
-                      alt={card.title}
-                      className="card-img-top"
+                {cardGroup.map((card, index) => (
+                <div key={card.id} className="col-12 col-md-2 col-ms-5 mt-2 mb-2 mx-auto" style={{}}>
+                    <div className="card mb-2"
                       style={{
-                        maxHeight: '300px',
-                        maxWidth: '100%',
+                        width: '300px', // Ancho completo para todos los tamaños de pantalla
+                        height: '95%', // Altura máxima para ocupar todo el espacio disponible
+                        borderRadius: '8px',
+                       
                       }}
-                    />
-                    <div className="card-body">
-                      <div className="Package-info">
-                        <p>Ida+Vuelta</p>
+                    >
+                      <img
+                        src={card.imageSrc}
+                        alt={card.title}
+                        className="card-img-top"
+                        style={{
+                          Height: '200px',
+                          maxWidth: '100%',
+                        }}
+                      />
+                      <div className="card-body">
+                        <div className="Package-info">
+                          <div className='cardtop d-flex'>
+                            <p style={{ backgroundColor: "#E17700", borderRadius: "10px", width: "90px", textAlign: "center" }}>Ida+Vuelta </p>
+                            <p style={{ backgroundColor: "#023047", borderRadius: "10px", width: "100px", textAlign: "center", color: "white" }}> {card.description} </p>
+                          </div>
+                        </div>
+                        <h2 className="card-title"> {card.title} </h2>
+                        <div className='Information'>
+                          <p>Precio</p>
+                          <h3>{card.price}</h3>
+                          <p style={{ fontSize: '14px' }}> Duración: {card.startDate} - {card.endDate}</p>
+                        </div>
+                        <button className="btn btn-primary">Ver Paquete</button>
                       </div>
-                      <h2 className="card-title">{card.title}</h2>
-                      <p className="card-text">{card.description}</p>
-                      <div>
-                        <p>Precio</p>
-                        <h3>{card.price}</h3>
-                      </div>
-                      <button className="btn btn-primary">Ver Paquete</button>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           ))}
-        </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        </div >
+        <button className="carousel-control-prev d-none d-sm-block " type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Anterior</span>
         </button>
@@ -69,4 +102,4 @@ function OfferCarousel() {
   );
 }
 
-export default OfferCarousel;
+export default OfferCarouesel;
