@@ -1,0 +1,60 @@
+.container-login {
+	display: grid;
+	grid-auto-columns: 1fr;
+	grid-auto-rows: 1fr;
+	grid-template-columns: 1fr 1fr;
+	height: 100%;
+}
+.container-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+}
+.container-form form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 35%;
+}
+
+.container-checkbox {
+	display: flex;
+	width: 100%;
+}
+.checkbox-form {
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.container-btn-social {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	gap: 0.5rem;
+}
+.container-forgotten {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.text-high {
+	cursor: pointer;
+	color: #fb8500;
+	font-weight: bold;
+}
+
+.container-logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+.logo {
+	object-fit: contain;
+	width: 55%;
+	height: 55%;
+}
