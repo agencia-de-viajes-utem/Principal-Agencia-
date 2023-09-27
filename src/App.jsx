@@ -9,7 +9,6 @@ import Footer from './components/footer';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './components/OfferCarousel.jsx'
 import OfferCarouesel from './components/OfferCarousel.jsx';
 
 function App() {
@@ -263,7 +262,7 @@ function App() {
           <pre>{JSON.stringify(paquetes, null, 2)}</pre>
         </div>
       )}
-      <div> <OfferCarouesel /> </div>
+      <div className=''> <OfferCarouesel /> </div>
       </div>
       <div className="footer-placeholder"></div>
       <div className='container-footer'>

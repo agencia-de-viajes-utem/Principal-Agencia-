@@ -40,7 +40,7 @@ function OfferCarouesel() {
   const chunkedCards = chunkArray(cards,calculateCardsToShow());
 
   return (
-    <div className="container mx-auto " style={{ }}>
+    <div className="offer mx-auto mt-5 " style={{ }}>
       <div id="myCarousel" className="carousel slide mx-auto" data-bs-ride="carousel"style={{width: "90vw"}}>
         <div className="carousel-inner " role="listbox">
           {chunkedCards.map((cardGroup, groupIndex) => (
