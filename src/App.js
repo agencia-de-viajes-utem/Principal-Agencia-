@@ -244,6 +244,7 @@ function App() {
         
       </div>
       <div className="ofertas"> <OfferCarousel /> </div>
+      
       {isLoading && <div>Cargando...</div>}
       {paquetesFetched && paquetes.length === 0 && (
         <div className="no-paquetes">
