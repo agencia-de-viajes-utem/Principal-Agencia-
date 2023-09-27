@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './OfferCarousel.css';
+import '../styles/OfferCarousel.css';
 
 function OfferCarouesel() {
   const [cards, setCards] = useState([]);
