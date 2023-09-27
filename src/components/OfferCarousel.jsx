@@ -6,7 +6,7 @@ function OfferCarouesel() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    fetch('./tarjetas.json')
+    fetch('src/Components/tarjetas.json')
       .then((response) => response.json())
       .then((data) => setCards(data))
       .catch((error) => console.error('Error:', error));
