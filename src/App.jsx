@@ -3,15 +3,13 @@ import './App.css';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './styles/fonts.css'
+import NavBar from './components/navBar';
 import AirportSearch from './components/AirportSearch';
 import Footer from './components/footer';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import OfferCarouesel from './components/OfferCarousel.jsx';
-import Header from './components/Header'; // Ajusta la ruta para reflejar la ubicación de Header
-import WelcomeMessage from './components/WelcomeMessage';
-
 
 function App() {
   const [origen, setOrigen] = useState([]);
@@ -163,17 +161,10 @@ function App() {
     const year = String(date.getFullYear()).slice(2);
     return `${day}/${month}/${year}`;
   };
+
   return (
     <div className="App">
-       <Header />
-      <WelcomeMessage />
-      <div className="app-container">
-      <div className="center-content">
-      <div className="paquetes-container">
-        
-    </div>
-      </div>
-        </div>
+      <NavBar />
       <div className='container_buscador'>
       <div className="search-group" style={{ position: "relative" }}>
         {/* Inicio HTML de las nubes */}
@@ -278,7 +269,8 @@ function App() {
       <Footer />
       </div>
     </div>
-  )
+  );
+
 }
 
 export default App;
