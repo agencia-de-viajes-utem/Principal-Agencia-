@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Estilos para el componente Header */
 
 .header {
@@ -90,3 +91,97 @@
 
 
 
+=======
+/* Estilos para el componente Header */
+
+.header {
+  background-color: #023047;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  margin-bottom: 10em;
+}
+
+.header .left-section {
+  display: flex;
+  align-items: center;
+}
+
+.header .right-section {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.header .login-button {
+  background-color: #fb8500;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px; /* Agrega margen izquierdo para separar de los elementos anteriores */
+}
+
+.header .login-button .icon {
+  margin-right: 5px;
+}
+
+/* Estilos para el componente Logo */
+
+.logo img {
+  max-width: 50px;
+  margin-right: 10px; /* Agrega margen derecho para separar de los elementos siguientes */
+}
+
+/* Estilos para el componente NavItem */
+
+.header .nav-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 30px; /* Agrega margen izquierdo para separar de los elementos anteriores */
+  margin-right: 30px; /* Agrega margen derecho para separar de los elementos siguientes */
+  color: #fb8500;
+}
+
+.nav-item .nav-text {
+  margin-left: 5px; /* Ajusta el margen izquierdo según tus preferencias */
+  color: #fff; /* Puedes ajustar el color del texto según tus necesidades */
+}
+
+/* Estilos para el componente WelcomeMessage */
+.welcome-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFB703;
+  padding: 20px;
+  border-radius: 5px;
+  transition: opacity 0.3s;
+}
+
+.welcome-message.show {
+  display: block;
+  opacity: 1;
+}
+
+.welcome-message.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+
+>>>>>>> f690eb5b1e9e8574d3f967e883675abec8b8db90
