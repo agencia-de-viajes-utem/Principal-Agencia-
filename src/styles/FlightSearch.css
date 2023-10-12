@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+.form-label{
+    font-weight: normal;
+}
+
+.container-form{
+    padding: 20px;
+    margin: 10px 50px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+    background-color: #219EBC;
+}
+
+
+@media (min-width: 1350px ) {
+    .container-form{
+        margin: 10px 150px;
+    }
+    
+}
+
+button{
+    background-color: #FB8500 !important;
+    transition: background-color 0.5s;
+    border: none !important;
+    font-size: larger !important;
+}
+
+button:hover{
+    background-color: #e17700 !important;
+}
+
+body h2{
+    font-size:normal;
+    font-weight: 700;
+}
+
+body label{
+    font-size:medium;
+}
+
+.avioncito{
+    position: absolute;
+    margin-left: 8px;
+    margin-top: -3px;
+    color: rgb(232, 239, 243) !important;
+}
+

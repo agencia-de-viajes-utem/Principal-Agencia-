@@ -1,0 +1,41 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+h2{
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.contenedor-filtros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: #023047 solid 3px;
+    border-radius: 20px;
+    padding: 2em;
+    margin: 0 1em 1em;
+}
+
+.input{
+    width: 20em;
+    margin-bottom: 1em;
+}
+
+.label{
+    font-weight: 600;
+    text-align: center;
+}
+
+.botones{
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 1em;
+  }
+
+@media (min-width: 725px) {
+    .label{
+        text-align: center !important;
+    }
+}

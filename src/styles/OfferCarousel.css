@@ -1,0 +1,64 @@
+
+.offer {
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.carousel {
+  
+  border-radius: 10px;
+}
+
+.card {
+ 
+  border-radius: 8px;
+  margin-right: 10px; 
+  margin-bottom: 5px; 
+  margin-top: 10PX;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+
+.card-img-top {
+  max-height: 300px;
+  max-width: 100%;
+}
+
+
+.btn-primary {
+  background-color: #E17700;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #023047;
+}
+.Information{
+  padding: 0px 0px 0px 0px;
+   justify-content: center;
+  align-items: center;
+}
+.Information p{
+  margin: 0px 0px 0px 0px;
+}
+
+.cardtop p  {
+
+  margin: 0px 10px 0px 0px;
+
+}
+.carousel-control-prev-icon {
+
+ margin-right: 150px;
+ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='f8f9fa' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  
+ }
+ 
+ .carousel-control-next-icon {
+   margin-left: auto;
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='f8f9fa' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+  
+ }
+
+ 

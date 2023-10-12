@@ -1,0 +1,33 @@
+.container-logo{
+    font-size: x-large;
+    padding: 15px;
+}
+
+nav{
+    margin-top: 0 !important;
+    margin-bottom: 3em !important;
+    font-weight: 700;
+}
+
+.link-izq{
+    color: white;
+    margin: 0 20px; 
+}
+
+.link-izq:hover{
+    color: #e17700;
+}
+
+.btn{
+    color: white !important;
+    background-color: #FB8500;
+    font-weight: 700;
+}
+
+.btn:hover{
+    background-color: #e17700 !important;
+}
+
+.bi{
+    margin-right: 3px;
+}
