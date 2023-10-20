@@ -18,7 +18,7 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Buscador />} />
-        <Route path="/pag-busqueda" element={<PagBusqueda />} />
+        <Route path="/pag-busqueda/:id_paquete" element={<PagBusqueda />} />
         
       </Routes>
       <div className='container-footer'>

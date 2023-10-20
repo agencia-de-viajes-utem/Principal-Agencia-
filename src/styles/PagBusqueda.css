@@ -1,28 +1,37 @@
 .PagBusqueda {
-    width: 100%;
-  
-    display: grid;
-    grid:
-      "sidebar body" 1fr
-      / 1fr 3fr;
-    gap: 2em;
-  }
-  
-  .sidebar { 
-    grid-area: sidebar; 
-}
-  .body { 
-    grid-area: body;
-    border: black solid 3px;
-    margin-right: 2em;
-    margin-left: 2em;
+  width: 90vw;
+  margin: auto;
+  display: grid;
+  grid:
+    "sidebar body" 1fr
+    / 1fr 3fr;
+  gap: 2em;
 }
 
-  @media (max-width: 930px) {
-      .PagBusqueda{
-        display: flex;
-        flex-direction: column;
-        gap: 4em;
-      }
+.sidebar {
+  grid-area: sidebar;
+}
+
+.body {
+  grid-area: body;
+  margin-left: 5em; /* Elimina los márgenes en .body */
+}
+
+@media (max-width: 930px) {
+  .PagBusqueda {
+    display: flex;
+    flex-direction: column; /* Cambia a columna entre 450px y 930px */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 4em;
   }
-  
+
+  .sidebar, .body{
+    width: 80%;
+  }
+  .body{
+    margin: 0;
+  }
+
+}

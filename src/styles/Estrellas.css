@@ -1,0 +1,23 @@
+/* Estrellas.css */
+
+.estrellas {
+    font-size: 24px; /* Ajusta el tamaño de las estrellas según tu preferencia */
+  }
+  
+  .estrella-llena {
+    color: #fb8500; /* Color de las estrellas llenas */
+    transition: color 0.1s linear; /* Agrega una transición suave al color */
+    cursor: pointer;
+  }
+  
+  .estrella-vacia {
+    color: #ced4da; /* Color de las estrellas vacías */
+    transition: color 0.1s linear; /* Agrega una transición suave al color */
+    cursor: pointer;
+  }
+  
+  .estrella-llena:hover,
+  .estrella-vacia:hover {
+    color: #fb8500; /* Color al pasar el ratón sobre las estrellas */
+  }
+  

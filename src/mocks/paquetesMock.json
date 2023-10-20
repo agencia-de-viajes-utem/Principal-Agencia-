@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "nombre": "Aventura en la Playa",
+    "precio": 730000,
+    "valoracion": 5,
+    "servicios": ["WiFi", "Desayuno", "Bar"],
+    "id-servicio": ["wifi", "desayuno", "bar"]
+  },
+  {
+    "id": 2,
+    "nombre": "Exploración en la Montaña",
+    "precio": 550000,
+    "valoracion": 4,
+    "servicios": ["WiFi", "Desayuno", "Traslado"],
+    "id-servicio": ["wifi", "desayuno", "traslado"]
+  },
+  {
+    "id": 3,
+    "nombre": "Cultura en la Ciudad",
+    "precio": 320000,
+    "valoracion": 3,
+    "servicios": ["WiFi", "Gimnasio", "Vistas"],
+    "id-servicio": ["wifi", "gimnasio", "vistas"]
+  },
+  {
+    "id": 4,
+    "nombre": "Relax en el Spa",
+    "precio": 520000,
+    "valoracion": 4,
+    "servicios": ["Aire Acondicionado", "Spa", "TV"],
+    "id-servicio": ["acondicionado", "spa", "tv"]
+  },
+  {
+    "id": 5,
+    "nombre": "Aventura en la Selva",
+    "precio": 890000,
+    "valoracion": 5,
+    "servicios": ["Bar", "Desayuno", "TV"],
+    "id-servicio": ["bar", "desayuno", "tv"]
+  },
+  {
+    "id": 6,
+    "nombre": "Escapada Romántica",
+    "precio": 675000,
+    "valoracion": 4,
+    "servicios": ["Bar", "Spa", "Traslado"],
+    "id-servicio": ["bar", "spa", "traslado"]
+  }
+]

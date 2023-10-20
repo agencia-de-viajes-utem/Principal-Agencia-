@@ -1,64 +1,96 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import '../styles/Filtros.css';
-import "bootstrap-icons/font/bootstrap-icons.css"
-import '../styles/fonts.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
-const Filtros = ({}) => {
+import '../styles/fonts.css';
+import '../styles/Filtros.css'
+
+import Estrellas from './Estrellas';
+
+const Filtros = ({ filtrarPaquetes }) => {
   const [stars, setStars] = useState('');
-  const [serviceType, setServiceType] = useState('');
+  const [serviceTypes, setServiceTypes] = useState([]);
 
   const handleReset = () => {
     setStars('');
-    setServiceType('');
+    setServiceTypes([]);
+    filtrarPaquetes(() => true); // Restablecer a todos los paquetes
+  };
+
+  const services = [
+    { id: 'wifi', label: 'WiFi' },
+    { id: 'desayuno', label: 'Desayuno' },
+    { id: 'bar', label: 'Bar' },
+    { id: 'traslado', label: 'Traslado' },
+    { id: 'gimnasio', label: 'Gimnasio' },
+    { id: 'vistas', label: 'Vistas Panoramicas' },
+    { id: 'acondicionado', label: 'Aire Acondicionado' },
+    { id: 'spa', label: 'Spa' },
+    { id: 'tv', label: 'TV' },
+  ];
+
+  const handleServiceTypeChange = (e) => {
+    const value = e.target.value;
+    setServiceTypes((prevTypes) =>
+      prevTypes.includes(value)
+        ? prevTypes.filter((type) => type !== value)
+        : [...prevTypes, value]
+    );
+  };
+
+  const handleStarClick = (valoracion) => {
+    setStars(stars === valoracion.toString() ? '' : valoracion.toString());
+  };
+
+  const handleFilterClick = () => {
+    filtrarPaquetes((paquete) => {
+      const cumpleValoracion = stars === '' || paquete.valoracion === parseInt(stars);
+      const cumpleServicios = serviceTypes.length === 0 || serviceTypes.every((servicio) => paquete['id-servicio'].includes(servicio));
+
+      return cumpleValoracion && cumpleServicios;
+    });
   };
 
   return (
-    <Form className='contenedor-filtros'>
-      <h2>Filtros</h2>
-      <FormGroup>
-        <Label className='label' for="stars">
-          Estrellas
-          </Label>
-        <Input className='input'
-          type="select"
-          id="stars"
-          value={stars}
-          onChange={(e) => setStars(e.target.value)}
-        >
-          <option value="">Todas las estrellas</option>
-          <option value="1">1 estrella</option>
-          <option value="2">2 estrellas</option>
-          <option value="3">3 estrellas</option>
-          <option value="4">4 estrellas</option>
-          <option value="5">5 estrellas</option>
-        </Input>
-      </FormGroup>
+    <Form className="contenedor-filtros">
+    <h2>Filtros</h2>
+    <FormGroup>
+      <legend className="label">
+        Estrellas
+      </legend>
+      <Estrellas valoracion={parseInt(stars)} onStarClick={handleStarClick} labelId="stars" />
+    </FormGroup>
 
-      <FormGroup>
-        <Label className='label' for="serviceType">Servicio</Label>
-        <Input className='input'
-          type="select"
-          id="serviceType"
-          value={serviceType}
-          onChange={(e) => setServiceType(e.target.value)}
-        >
-          <option value="">Todos los tipos</option>
-          <option value="standard">Estándar</option>
-          <option value="luxury">Lujo</option>
-          <option value="allInclusive">Todo Incluido</option>
-        </Input>
+    <FormGroup>
+  <legend className="label">Servicios</legend>
+  <div>
+    {services.map((service) => (
+      <FormGroup key={service.id} check>
+        <Label check for={service.id}>
+          <Input
+            type="checkbox"
+            id={service.id}
+            name={service.id}
+            value={service.id}
+            checked={serviceTypes.includes(service.id)}
+            onChange={handleServiceTypeChange}
+          />
+          {service.label}
+        </Label>
       </FormGroup>
+    ))}
+  </div>
+</FormGroup>
 
-      <div className='botones'>
-        <Button>
+      <div className="botones">
+        <Button onClick={handleFilterClick}>
           <i className="bi bi-funnel-fill"></i>
           Filtrar
-          </Button>
+        </Button>
         <Button onClick={handleReset}>
           <i className="bi bi-arrow-counterclockwise"></i>
           Reestablecer
-          </Button>
+        </Button>
       </div>
     </Form>
   );

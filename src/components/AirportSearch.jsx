@@ -11,18 +11,22 @@ function AirportSearch({ className, onAirportSelect }) {
   useEffect(() => {
     const fetchAirports = async () => {
       try {
-        const response = await fetch('http://localhost:8080/aeropuertos');
+        const apiUrl = import.meta.env.VITE_API_URL;
+        const response = await fetch(apiUrl + '/listaeropuertos');
         if (!response.ok) {
           throw new Error('Error al obtener los aeropuertos');
         }
         const data = await response.json();
-        setOptions(data.map((airport) => airport.aeropuerto));
-        setData(data);
+  
+         setOptions(data.map((airport) => airport.aeropuerto));
+         setData(data);
+  
+        // console.log("Data recuperada:", data);
       } catch (error) {
         console.error(error);
       }
     };
-
+  
     fetchAirports();
   }, []);
 

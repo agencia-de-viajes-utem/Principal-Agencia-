@@ -10,11 +10,11 @@ h2{
 .contenedor-filtros{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     border: #023047 solid 3px;
     border-radius: 20px;
     padding: 2em;
-    margin: 0 1em 1em;
+    margin: 0 1em 1rem;
 }
 
 .input{
@@ -24,7 +24,7 @@ h2{
 
 .label{
     font-weight: 600;
-    text-align: center;
+    font-size: larger;
 }
 
 .botones{
@@ -34,8 +34,9 @@ h2{
     margin-bottom: 1em;
   }
 
-@media (min-width: 725px) {
-    .label{
-        text-align: center !important;
+@media (max-width: 930px) {
+    .contenedor-filtros{
+        align-items: center;
+        justify-content: center;
     }
 }

@@ -7,6 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import OfferCarouesel from './OfferCarousel.jsx';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate, Link } from 'react-router-dom';
+
+import PagBusqueda from './PagBusqueda';
 
 function Buscador(){
 
@@ -21,6 +24,74 @@ const [paquetesFetched, setPaquetesFetched] = useState(false);
 const [showCalendar, setShowCalendar] = useState(false);
 const calendarRef = useRef(null);
 const [numberOfPeople, setNumberOfPeople] = useState('');
+const [urlPaquete, setUrlPaquete] = useState('');
+const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+const navigate = useNavigate();
+
+useEffect(() => {
+  if (origen.length !== 0 && destino.length !== 0 && (selectedMonth.length > 0 || selectedDates.length > 0)) {
+    console.log("¡Hola Mundo!", origen, destino, selectedDates);
+    setIsButtonDisabled(false);
+    //Hacer fetch y guardarlo en paquetes
+    //Aca hay 2 condiciones, pudo haber elegido x mes o rango de fecha
+    fetchPaquetes();
+  }else{
+    setIsButtonDisabled(true);
+  }
+}, [origen, destino, selectedMonth ,selectedDates]);
+
+const fetchPaquetes = async () => {
+  setIsLoading(true);
+  try {
+    const apiUrl = import.meta.env.VITE_API_URL;
+    let apiEndpoint = '';
+    if (showMonthView) {
+      // Vista de mes
+      const mesSeleccionado = selectedMonth.split('-')[1];
+      apiEndpoint = `/paquetes/mes?origen=${origen[0].id}&destino=${destino[0].id}&mes=${mesSeleccionado}`;
+    } else {
+      // Vista de días
+      const formattedDates = selectedDates.map((date) => {
+        date.setHours(0, 0, 0, 0);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+      });
+      const fechaInicio = formattedDates[0];
+      const fechaFin = formattedDates[formattedDates.length - 1];
+      apiEndpoint = `/paquetes?origen=${origen[0].id}&destino=${destino[0].id}&fechaInicio=${fechaInicio}&fechaFin=${fechaFin}`;
+    }
+
+    const response = await fetch(apiUrl + apiEndpoint);
+    if (!response.ok) {
+      throw new Error('Error en la solicitud');
+    }
+    const data = await response.json();
+    if (data.length === 0) {
+      alert('No hay paquetes disponibles para la selección realizada.');
+    } else {
+      setPaquetes(data);
+    }
+  } catch (error) {
+    console.error('Error al cargar los paquetes:', error);
+  } finally {
+    setIsLoading(false);
+    setPaquetesFetched(true);
+  }
+
+  console.log("Paquetes:", paquetes);
+};
+
+const handleBuscarClick = () => {
+  // Verifica si los campos están llenos
+  if (origen.length !== 0 && destino.length !== 0 && (selectedMonth.length > 0 || selectedDates.length > 0)) {
+    // Redirige a la página de búsqueda y pasa los paquetes como un parámetro
+    console.log(`/pag-busqueda/${encodeURIComponent(JSON.stringify(paquetes))}`);
+    navigate(`/pag-busqueda/${encodeURIComponent(JSON.stringify(paquetes))}`);
+  }
+};
 
 // Event listener para cerrar el calendario cuando se hace clic fuera de él
 useEffect(() => {
@@ -44,91 +115,7 @@ useEffect(() => {
   };
 }, [showCalendar]);
 
-const handleBuscarClick = async () => {
-  if (!origen || origen.length === 0 || !destino || destino.length === 0) {
-    alert('Por favor, selecciona tanto el origen como el destino.');
-    return;
-  }
 
-  if (showMonthView) {
-    // Manejar lógica cuando está en vista de año (year)
-    // Por ejemplo, puedes mostrar una alerta con el mes seleccionado
-    if (!selectedMonth) {
-      alert('Por favor, selecciona un mes.');
-      return;
-    }
-    console.log('Mes seleccionado en vista de año:', selectedMonth);
-
-    // Realizar la solicitud a la API en la vista de año
-    const origenId = origen[0].id;
-    const destinoId = destino[0].id;
-    const mesSeleccionado = selectedMonth.split('-')[1]; // Extraer el mes de selectedMonth
-
-    setIsLoading(true);
-
-    try {
-      const response = await fetch(
-        `http://localhost:8080/paquetes/mes?origen=${origenId}&destino=${destinoId}&mes=${mesSeleccionado}`
-      );
-      if (!response.ok) {
-        throw new Error('Error en la solicitud');
-      }
-      const data = await response.json();
-      if (data.length === 0) {
-        alert('No hay paquetes disponibles para el mes seleccionado.');
-      } else {
-        setPaquetes(data);
-      }
-    } catch (error) {
-      console.error('Error al cargar los paquetes:', error);
-    } finally {
-      setIsLoading(false);
-      setPaquetesFetched(true);
-    }
-  } else {
-    // Manejar lógica cuando está en vista normal (por día)
-    if (!selectedDates || selectedDates.length === 0) {
-      alert('Por favor, selecciona las fechas deseadas.');
-      return;
-    }
-
-    const formattedDates = selectedDates.map((date) => {
-      date.setHours(0, 0, 0, 0);
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const day = String(date.getDate()).padStart(2, '0');
-      return `${year}-${month}-${day}`;
-    });
-
-    const origenId = origen[0].id;
-    const destinoId = destino[0].id;
-    const fechaInicio = formattedDates[0];
-    const fechaFin = formattedDates[formattedDates.length - 1];
-
-    setIsLoading(true);
-
-    try {
-      console.log(origenId, destinoId, fechaInicio, fechaFin)
-      const response = await fetch(
-        `http://localhost:8080/paquetes?origen=${origenId}&destino=${destinoId}&fechaInicio=${fechaInicio}&fechaFin=${fechaFin}`
-      );
-      if (!response.ok) {
-        throw new Error('Error en la solicitud');
-      }
-      const data = await response.json();
-      if (data.length === 0) {
-        alert('No hay paquetes disponibles para las fechas seleccionadas.');
-      } else {
-        setPaquetes(data);
-      }
-    } catch (error) {
-      console.error('Error al cargar los paquetes:', error);
-    } finally {
-      setIsLoading(false);
-      setPaquetesFetched(true);
-    }
-  }
-};
 
 const toggleCalendar = () => {
   setShowCalendar(!showCalendar);
@@ -242,9 +229,16 @@ const formatDate = (date) => {
       />
     </div>
   </div>
-          <Button className="buscar" variant="primary" onClick={handleBuscarClick}>
-            BUSCAR
-          </Button>
+      
+        <Button
+          className="buscar"
+          variant="primary"
+          onClick={handleBuscarClick} // Maneja el clic del botón
+          disabled={isButtonDisabled} // Utiliza el estado para habilitar/deshabilitar el botón
+        >
+          BUSCAR
+        </Button>
+
         </div>
         {isLoading && <div>Cargando...</div>}
         {paquetesFetched && paquetes.length === 0 && (
@@ -252,13 +246,10 @@ const formatDate = (date) => {
             No se encontraron paquetes en esa fecha o mes seleccionado.
           </div>
         )}
-        {paquetes.length > 0 && (
-          <div className="paquetes">
-            <h2>Paquetes Disponibles:</h2>
-            <pre>{JSON.stringify(paquetes, null, 2)}</pre>
-          </div>
-        )}
         <div className=''> <OfferCarouesel /> </div>
+        <Link to={`/pag-busqueda/1`}>
+           <button>Ir a la página de búsqueda</button>
+          </Link>
         </div>
     );
 
