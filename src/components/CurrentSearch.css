@@ -1,0 +1,22 @@
+.search-group{
+    background: rgb(33,158,188);
+    background: linear-gradient(180deg, rgba(33,158,188,1) 35%, rgba(142,202,230,1) 100%);
+    padding: 2.5rem;
+    width: 80%;
+    border-radius: 50px;
+    z-index: 1;
+  }
+  .date-input-container {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+  }
+  .calendar-container {
+    position: absolute;
+    top: 100%; /* Coloca el calendario justo debajo del input */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 3;
+  }
+    
