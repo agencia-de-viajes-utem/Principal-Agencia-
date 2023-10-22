@@ -7,38 +7,26 @@ import "../App.css"
 import "../styles/PagBusqueda.css";
 import CurrentSearch from './CurrentSearch.jsx'
 
+
 function PagBusqueda() {
-  const [paquetes, setPaquetes] = useState([]); // Inicializa paquetes como un array vacío
-  const { id_paquete } = useParams();
-  const location = useLocation(); // Usa useLocation para obtener la ubicación actual
+  const location = useLocation();
+  const {paquetes} = location.state;
+  const [paquetesFiltrados, setPaquetesFiltrados] = useState(paquetes);
 
-  useEffect(() => {
-    // Obtiene el parámetro de la URL y lo convierte a objetos JSON
-    const { pathname } = location;
-    const packagesParam = pathname.split('/').pop();
-    const packagesJSON = decodeURIComponent(packagesParam);
-    const packages = JSON.parse(packagesJSON);
-
-    if (packages && Array.isArray(packages)) {
-      setPaquetes(packages);
-    }
-  }, [location]);
-
-  // const filtrarPaquetes = (filtro) => {
-  //   // Implementa la lógica de filtrado aquí
-  //   const paquetesFiltrados = PaquetesMock.filter(filtro);
-  //   setPaquetes(paquetesFiltrados);
-  // };
+  const filtrarPaquetes = (filtro) => {
+    const paquetesFiltrados = paquetes.filter(filtro);
+    setPaquetesFiltrados(paquetesFiltrados);
+  };
 
   return (
     <div className="PagBusqueda">
       <div className="sidebar">
-        {/* <Filtros filtrarPaquetes={filtrarPaquetes} /> */}
+        <Filtros filtrarPaquetes={filtrarPaquetes} />
       </div>
       <div className="body">
         <h1>Paquetes</h1>
         <ul>
-          {paquetes.map((paquete) => (
+          {paquetesFiltrados.map((paquete) => (
             <li key={paquete.id_paquete}>
               <h2>{paquete.nombre_paquete}</h2>
               <p>Descripción: {paquete.desc_paquete}</p>
@@ -57,6 +45,7 @@ function PagBusqueda() {
             </li>
           ))}
         </ul>
+        <SortBy/>
       </div>
     </div>
   );

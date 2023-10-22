@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
+import SortBy from './SortBy';
 import '../styles/fonts.css';
 import '../styles/Filtros.css'
 
@@ -18,15 +19,15 @@ const Filtros = ({ filtrarPaquetes }) => {
   };
 
   const services = [
-    { id: 'wifi', label: 'WiFi' },
-    { id: 'desayuno', label: 'Desayuno' },
+    { id: 'Wi-Fi', label: 'WiFi' },
+    { id: 'Desayuno', label: 'Desayuno' },
     { id: 'bar', label: 'Bar' },
     { id: 'traslado', label: 'Traslado' },
     { id: 'gimnasio', label: 'Gimnasio' },
     { id: 'vistas', label: 'Vistas Panoramicas' },
     { id: 'acondicionado', label: 'Aire Acondicionado' },
     { id: 'spa', label: 'Spa' },
-    { id: 'tv', label: 'TV' },
+    { id: 'TV', label: 'TV' },
   ];
 
   const handleServiceTypeChange = (e) => {
@@ -44,10 +45,11 @@ const Filtros = ({ filtrarPaquetes }) => {
 
   const handleFilterClick = () => {
     filtrarPaquetes((paquete) => {
-      const cumpleValoracion = stars === '' || paquete.valoracion === parseInt(stars);
-      const cumpleServicios = serviceTypes.length === 0 || serviceTypes.every((servicio) => paquete['id-servicio'].includes(servicio));
+      //const cumpleValoracion = stars === '' || paquete.valoracion === parseInt(stars);
+      const cumpleServicios = serviceTypes.length === 0 || serviceTypes.every((servicio) => paquete.servicios_hh.includes(servicio));
 
-      return cumpleValoracion && cumpleServicios;
+      //return cumpleValoracion && cumpleServicios;
+      return cumpleServicios
     });
   };
 

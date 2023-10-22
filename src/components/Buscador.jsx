@@ -88,8 +88,8 @@ const handleBuscarClick = () => {
   // Verifica si los campos están llenos
   if (origen.length !== 0 && destino.length !== 0 && (selectedMonth.length > 0 || selectedDates.length > 0)) {
     // Redirige a la página de búsqueda y pasa los paquetes como un parámetro
-    console.log(`/pag-busqueda/${encodeURIComponent(JSON.stringify(paquetes))}`);
-    navigate(`/pag-busqueda/${encodeURIComponent(JSON.stringify(paquetes))}`);
+    console.log(paquetes);
+    navigate('/pag-busqueda', { state: { paquetes: paquetes }});
   }
 };
 
@@ -240,16 +240,13 @@ const formatDate = (date) => {
         </Button>
 
         </div>
-        {isLoading && <div>Cargando...</div>}
+        {/* {isLoading && <div>Cargando...</div>}
         {paquetesFetched && paquetes.length === 0 && (
           <div className="no-paquetes">
             No se encontraron paquetes en esa fecha o mes seleccionado.
           </div>
-        )}
+        )} */}
         <div className=''> <OfferCarouesel /> </div>
-        <Link to={`/pag-busqueda/1`}>
-           <button>Ir a la página de búsqueda</button>
-          </Link>
         </div>
     );
 

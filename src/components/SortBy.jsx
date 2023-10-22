@@ -1,6 +1,10 @@
 import React, {useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+<<<<<<< HEAD
 import './Sortby.css'
+=======
+import '../styles/SortBy.css';
+>>>>>>> dca1dbf (URL limpia)
 
 function SortBy () {
   
@@ -34,6 +38,7 @@ function SortBy () {
         
 
         return(<div className="mt-2 mx-2" style={{ width:'60%'}}>
+<<<<<<< HEAD
                     <div class="btn-group" role="group">
         <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             Ordenar Por
@@ -43,16 +48,30 @@ function SortBy () {
         <button type="button" class="btn btn- w-100" onClick={sortByPriceDesc}>Precio (Des)</button>
         <button type="button" class="btn btn- w-100" onClick={sortByServiceCount}>Servicios</button>
         <button type="button" class="btn btn- w-100" onClick={sortByRating}>Valoracion</button>
+=======
+                    <div className="btn-group" role="group">
+        <button type="button" className="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Ordenar Por
+        </button>
+        <ul className="dropdown-menu">
+        <button type="button" className="btn btn- w-100" onClick={sortByPriceAsc}>Precio (Asc)</button>
+        <button type="button" className="btn btn- w-100" onClick={sortByPriceDesc}>Precio (Des)</button>
+        <button type="button" className="btn btn- w-100" onClick={sortByServiceCount}>Servicios</button>
+        <button type="button" className="btn btn- w-100" onClick={sortByRating}>Valoracion</button>
+>>>>>>> dca1dbf (URL limpia)
         </ul>
     </div>
     
    
         </div>);
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> dca1dbf (URL limpia)
 }
 
 export default SortBy;

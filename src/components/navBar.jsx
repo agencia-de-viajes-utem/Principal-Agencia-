@@ -9,7 +9,7 @@ function NavBar() {
     return (
         <Navbar expand="md" style={{background:"#023047"}}>
             <div className='container-xl'>
-                <Navbar.Brand className="container-logo" href='#'>
+                <Navbar.Brand className="container-logo" href='/'>
                     <i className="bi bi-globe-americas" style={{ color: "#FB8500" }}></i>
                     <span style={{color:"#FB8500", marginLeft:"7px"}}>Logo</span>
                 </Navbar.Brand>
