@@ -43,7 +43,6 @@ function PagBusqueda() {
             <TarjetaPaquete paquete={paquete} key={paquete.id_paquete} />
           ))}
         </ul>
-        <SortBy/>
       </div>
     </div>
     </div>
