@@ -2,31 +2,31 @@ import React, {useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/SortBy.css';
 
-function SortBy () {
+function SortBy ({ paquetes, setPackages }) {
   
-        const [packages, setPackages] = useState(['']);
+       
       
         // Función para ordenar los paquetes por precio ascendente
         const sortByPriceAsc = () => {
-          const sortedPackages = [...packages].sort((a, b) => a.price - b.price);
+          const sortedPackages = [...paquetes].sort((a, b) => a.pr_total - b.pr_total);
           setPackages(sortedPackages);
         };
       
         // Función para ordenar los paquetes por precio descendente
         const sortByPriceDesc = () => {
-          const sortedPackages = [...packages].sort((a, b) => b.price - a.price);
+          const sortedPackages = [...paquetes].sort((a, b) => b.pr_total - a.pr_total);
           setPackages(sortedPackages);
         };
       
         // Función para ordenar los paquetes por cantidad de servicios
         const sortByServiceCount = () => {
           console.log(packages); // Añade esta línea para verificar la estructura de datos
-          const sortedPackages = [...packages].sort((a, b) => b.services.length - a.services.length);
+          const sortedPackages = [...paquetes].sort((a, b) => b.servicios_hh.length - a.servicios_hh.length);
           setPackages(sortedPackages);
         };
 
           const sortByRating = () => {
-            const sortedPackages = [...packages].sort((a, b) => a.rating - b.rating);
+            const sortedPackages = [...paquetes].sort((a, b) => a.rating - b.rating);
             setPackages(sortedPackages);
           };
        
@@ -35,7 +35,7 @@ function SortBy () {
 
         return(<div className="mt-2 mx-2" style={{ width:'60%'}}>
                     <div class="btn-group" role="group">
-        <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="btn btn-warning dropdown-toggle mt-2 mb-2" data-bs-toggle="dropdown" aria-expanded="false">
             Ordenar Por
         </button>
         <ul class="dropdown-menu">

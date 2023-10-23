@@ -39,7 +39,7 @@ const formatDate = (date) => {
                   ))}
                 </p>
                 <p className="card-text mx-1 justify-content-start mt-3 mb-2 col-sm-12 col-md-6 col-lg-2" style={{  marginRight: "80px" }}>
-                  <BsFillCalendarCheckFill className = 'mb-3' style={{ width: "2rem", height:"2rem", marginRight:""}}/> <h3>Ida y vuelta</h3>
+                  <BsFillCalendarCheckFill className = 'mb-3' style={{ width: "2rem", height:"2rem", marginRight:""}}/> <h3>Fechas</h3>
                   {selectedDates.length === 2
                     ? `${formatDate(selectedDates[0])} - ${formatDate(
                         selectedDates[1]

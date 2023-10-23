@@ -18,6 +18,7 @@ function PagBusqueda() {
     setPaquetesFiltrados(paquetesFiltrados);
   };
 
+
   return (
     <div>
       <div className='d-flex justify-content-center align-items-center mb-4'>
@@ -30,10 +31,12 @@ function PagBusqueda() {
       </div>
     <div className="PagBusqueda">
       <div className="sidebar">
+        
         <Filtros filtrarPaquetes={filtrarPaquetes} />
       </div>
       <div className="body">
         <h1>Paquetes</h1>
+        <SortBy paquetes={paquetes} setPackages={setPaquetesFiltrados} />
         <ul>
           {paquetesFiltrados.map((paquete) => (
             <li key={paquete.id_paquete}>
@@ -54,7 +57,7 @@ function PagBusqueda() {
             </li>
           ))}
         </ul>
-        <SortBy/>
+        
       </div>
     </div>
     </div>
