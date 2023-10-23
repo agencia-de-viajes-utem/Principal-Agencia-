@@ -1,118 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BsSearch, BsFillAirplaneFill, BsFillCalendarCheckFill, BsFillPeopleFill } from "react-icons/bs";
-import AirportSearch from './AirportSearch.jsx';
-import Button from 'react-bootstrap/Button';
-import Calendar from 'react-calendar';
+import {BsFillAirplaneFill, BsFillCalendarCheckFill, BsFillPeopleFill } from "react-icons/bs";
 import 'react-calendar/dist/Calendar.css';
-import Form from 'react-bootstrap/Form';
 import "./CurrentSearch.css"
 
-const App = (props) => {
+const CurrentSearch = (props) => {
 
 
-  const [selectedDestino, setSelectedDestino] = useState('');
-  const [paquetes, setPaquetes] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [showMonthView, setShowMonthView] = useState(false);
-  const [paquetesFetched, setPaquetesFetched] = useState(false);
-  const [showCalendar, setShowCalendar] = useState(false);  
+    
   const [numberOfPeople, setNumberOfPeople] = useState('');
-  const [busqueda, setBusqueda] = useState({});
-  const calendarRef = useRef(null);
-  
   const { origen, destino, selectedDates, selectedMonth } = props;
  
-  const [mostrarBusqueda, setMostrarBusqueda] = useState(false);
 
-  const [data, setData] = useState([]);
-  const [options, setOptions] = useState([]);
-
-  // useEffect(() => {
-  //   // Fetch data from API and store it in the options state variable
-  //   fetch('http://localhost:8080/aeropuertos')
-  //     .then(response => response.json())
-  //     .then(data => setOptions(data))
-  //     .catch(error => console.error(error));
-  // }, []);
-
-  
-  useEffect(() => {
-    const fetchAirports = async () => {
-      try {
-        const apiUrl = import.meta.env.VITE_API_URL;
-        const response = await fetch(apiUrl + '/listaeropuertos');
-        if (!response.ok) {
-          throw new Error('Error al obtener los aeropuertos');
-        }
-        const data = await response.json();
-  
-         setOptions(data.map((airport) => airport.aeropuerto));
-         setData(data);
-  
-        // console.log("Data recuperada:", data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-  
-    fetchAirports();
-  }, []);
-
-  const actualizarBusquedaReciente = (nuevaBusqueda) => {
-    setBusquedaReciente(nuevaBusqueda);
-  };
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setBusqueda({ ...busqueda, [name]: value });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    actualizarBusquedaReciente(busqueda);
-    // Aquí puedes realizar acciones adicionales con la búsqueda, como enviarla al servidor, etc.
-  };
-
-  const toggleMostrarBusqueda = () => {
-    setMostrarBusqueda(!mostrarBusqueda);
-  };
-
-  const handleBuscarClick = async () => {
-	if (!origen || origen.length === 0 || !destino || destino.length === 0) {
-	  alert('Por favor, selecciona tanto el origen como el destino.');
-	  return;
-	}
-}
-const toggleCalendar = () => {
-  setShowCalendar(!showCalendar);
-};
-
-const handleDateChange = (date) => {
-  setSelectedDates(date);
-};
-
-const handleMonthClick = (value) => {
-  // El parámetro "value" contiene la fecha del mes seleccionado
-  const year = value.getFullYear();
-  const month = String(value.getMonth() + 1).padStart(2, '0');
-  setSelectedMonth(`${year}-${month}`);
-  console.log(month);
-};
 
 const formatDate = (date) => {
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const year = String(date.getFullYear()).slice(2);
   return `${day}/${month}/${year}`;
-};
-
-const handleCheckboxChange = () => {
-  setShowMonthView(!showMonthView);
-  setSelectedDates([]); // Limpia las fechas seleccionadas al cambiar de vista
-  setPaquetes([]); // Limpia los paquetes al cambiar de vista
-  setPaquetesFetched(false); // Reinicia el estado de búsqueda al cambiar de vista
 };
 
 
@@ -154,4 +59,4 @@ const handleCheckboxChange = () => {
   );
 }
 
-export default App;
+export default CurrentSearch;
