@@ -5,11 +5,8 @@ import 'react-calendar/dist/Calendar.css';
 import "./CurrentSearch.css"
 
 const CurrentSearch = (props) => {
-
-
-    
-  const [numberOfPeople, setNumberOfPeople] = useState('');
-  const { origen, destino, selectedDates, selectedMonth } = props;
+   
+  const { origen, destino, selectedDates, selectedMonth, numberOfPeople } = props;
  
 
 
@@ -49,7 +46,7 @@ const formatDate = (date) => {
                     : selectedMonth}
                 </p>
                 <p className="card-text justify-content-start mt-3 mb-2 mx-4 col-sm-12 col-md-6 col-lg-2">
-                <BsFillPeopleFill className='mb-3' style={{ width: "2rem", height:"2rem", marginLeft:"10px"}}/> <h2>Personas</h2> {numberOfPeople}
+                <BsFillPeopleFill className='mb-3' style={{ width: "2rem", height:"2rem", marginLeft:"10px"}}/> <h3>Personas</h3> {numberOfPeople}
                 </p>
               </div>
             </div>
