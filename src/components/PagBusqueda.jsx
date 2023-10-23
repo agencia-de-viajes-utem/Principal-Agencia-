@@ -10,7 +10,7 @@ import CurrentSearch from './CurrentSearch.jsx'
 
 function PagBusqueda() {
   const location = useLocation();
-  const {paquetes} = location.state;
+  const { paquetes, origen, destino, selectedDates, selectedMonth } = location.state;
   const [paquetesFiltrados, setPaquetesFiltrados] = useState(paquetes);
 
   const filtrarPaquetes = (filtro) => {
@@ -20,7 +20,14 @@ function PagBusqueda() {
 
   return (
     <div>
-      <div className='d-flex justify-content-center align-items-center mb-4'> <CurrentSearch/> </div>
+      <div className='d-flex justify-content-center align-items-center mb-4'>
+        <CurrentSearch
+            origen={origen}
+            destino={destino}
+            selectedDates={selectedDates}
+            selectedMonth={selectedMonth}
+        /> 
+      </div>
     <div className="PagBusqueda">
       <div className="sidebar">
         <Filtros filtrarPaquetes={filtrarPaquetes} />

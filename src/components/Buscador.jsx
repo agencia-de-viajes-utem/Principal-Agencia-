@@ -89,8 +89,15 @@ const handleBuscarClick = () => {
   if (origen.length !== 0 && destino.length !== 0 && (selectedMonth.length > 0 || selectedDates.length > 0)) {
     // Redirige a la página de búsqueda y pasa los paquetes como un parámetro
     console.log(paquetes);
-    navigate('/pag-busqueda', { state: { paquetes: paquetes }});
-    
+    navigate('/pag-busqueda', { state: 
+      { 
+        paquetes: paquetes ,
+        origen: origen,
+        destino: destino,
+        selectedMonth: selectedMonth,
+        selectedDates: selectedDates,
+      }});
+
   }
 };
 

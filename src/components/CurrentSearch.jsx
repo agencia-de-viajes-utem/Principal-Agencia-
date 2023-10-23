@@ -8,21 +8,20 @@ import 'react-calendar/dist/Calendar.css';
 import Form from 'react-bootstrap/Form';
 import "./CurrentSearch.css"
 
-const App = () => {
+const App = (props) => {
 
-  const [origen, setOrigen] = useState([]);
-  const [destino, setDestino] = useState([]);
+
   const [selectedDestino, setSelectedDestino] = useState('');
-  const [selectedDates, setSelectedDates] = useState(new Date());
   const [paquetes, setPaquetes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showMonthView, setShowMonthView] = useState(false);
-  const [selectedMonth, setSelectedMonth] = useState([]);
   const [paquetesFetched, setPaquetesFetched] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);  
   const [numberOfPeople, setNumberOfPeople] = useState('');
   const [busqueda, setBusqueda] = useState({});
   const calendarRef = useRef(null);
+  
+  const { origen, destino, selectedDates, selectedMonth } = props;
  
   const [mostrarBusqueda, setMostrarBusqueda] = useState(false);
 
@@ -125,7 +124,7 @@ const handleCheckboxChange = () => {
               <p className="card-text  justify-content-start mr-2 mt-3 mb-2 col-sm-12 col-md-6 col-lg-3" style={{  }}>
               <BsFillAirplaneFill className='mb-3 mx-2' style={{ width: "2rem", height: "2rem", rotate: "45deg" }} /> <h3>Origen</h3>
               {origen.map(item => (
-             <div className='d-flex' key={item.id}>{item.aeropuerto}</div>
+                <p className='d-flex'>{item.aeropuerto}</p>
               ))}
               </p>
                 <p className="card-text justify-content-start mt-3 mb-2 mx-auto col-sm-12 col-md-6 col-lg-3 " style={{  marginRight: "0px" }}>
