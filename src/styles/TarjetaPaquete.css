@@ -1,0 +1,114 @@
+
+/* Estilo para la tarjeta de paquete */
+.tarjeta-paquete {
+  display: flex;
+  justify-content: space-between; /* Espacio entre imágenes y contenido */
+  width: 90%; /* Ancho de 20 cm */
+  height: 20%;
+  background-color: #fff; 
+  color: #023047;
+  border-radius: 10px; /* Esquinas redondeadas */
+  margin: 10px; /* Margen entre tarjetas */
+  padding: 10px; /* Espaciado interno */
+  overflow: hidden; /* Evitar desbordamiento de imágenes */
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* Estilo para el carrusel de imágenes */
+.imagen-carrusel {
+  width: 14em; /* Ancho del carrusel (40% de la tarjeta) */
+  height: 14em; /* Altura del carrusel igual a la de la tarjeta */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Alineación vertical en el centro */ 
+}
+
+/* Estilo para las imágenes en el carrusel */
+.imagen-paquete {
+  width: 100%; /* Ancho al 100% del contenedor del carrusel */
+  height: auto; /* Altura automática para mantener la proporción */
+  max-height: 100%; /* Máxima altura igual al 100% del contenedor */
+  object-fit: cover; /* Ajustar la imagen para llenar el espacio sin distorsionarla */
+}
+
+/* Estilo para la información */
+.informacion {
+  flex-grow: 1; /* Ocupa todo el espacio restante */
+  text-align: left; /* Alinea el texto a la derecha */
+  padding-left: 10px;
+  margin-top: .8em;
+}
+
+.imagen-carrusel-item {
+  width: 8cm;
+  height: 5cm;
+  object-fit: cover; /* Ajustar la imagen para cubrir el contenedor sin deformarla */
+}
+
+/* Estilo para los iconos de servicios */
+.icono-servicio {
+  margin-right: 10px; /* Agrega margen derecho para separar los íconos */
+
+}
+.estrella-amarilla {
+  color: #FFB703; /* Cambia el color de las estrellas a amarillo */
+  margin-top: -30px;
+}
+
+.elegir-button {
+  background-color: #FB8500;
+  z-index: 0; /* Asegura que el botón esté por encima de otros elementos */
+}
+
+.Boton{
+  display: flex;
+  justify-content: end;
+}
+
+.elegir-button:focus,
+.elegir-button:active {
+  border-color: transparent; /* Cambia el color del borde a transparente al enfocar o hacer clic */
+  outline: none; /* Elimina el contorno al enfocar o hacer clic */
+}
+.elegir-button:hover {
+  background-color: #E17700; /* Cambia el color de fondo al hacer hover */
+}
+
+.linea-divisoria {
+  margin-top: 0; /* Ajusta el valor de margin-top según la cantidad de espacio vertical deseado */
+  margin-bottom: 10px; /* Ajusta el valor de margin-bottom si es necesario */
+  border-top: 1px solid #ccc; /* Estilo de línea divisoria */
+}
+
+/* Estilo para el número de estrellas en la esquina superior derecha */
+.estrellas-puntuadas {
+  position: absolute; /* Posición absoluta */
+  top: 0; /* Alinear al borde superior de la tarjeta */
+  right: 0; /* Alinear al borde derecho de la tarjeta */
+  background-color: #023047; /* Color de fondo azul (puedes cambiarlo) */
+  color: white; /* Texto en color blanco (puedes cambiarlo) */
+  padding: 10px; /* Aumenta el espacio interno para agrandar el elemento */
+  border-radius: 0 0 0 15px; /* Borde superior redondeado (puedes ajustar los valores para el estilo deseado) */
+  z-index: 1;
+}
+
+
+.precios-container {
+  display: flex;
+  align-items: center;
+  margin-top: -15px;
+}
+
+.precio {
+  margin-right: 10px; /* Añade un margen derecho entre los precios y el botón */
+  font-weight: bold; /* Hace que el precio esté en negrita */
+  font-size: 20px; /* Aumenta el tamaño de fuente del precio */
+  color: #023047;
+  
+}
+
+/* Estilo para la descripción */
+
+.Descripcion {
+   font-size: 12px; /* Tamaño de fuente más pequeño */
+}

@@ -6,6 +6,7 @@ import SortBy from './SortBy'
 import "../App.css"
 import "../styles/PagBusqueda.css";
 import CurrentSearch from './CurrentSearch.jsx'
+import TarjetaPaquete from './TarjetaPaquete';
 
 
 function PagBusqueda() {
@@ -36,8 +37,19 @@ function PagBusqueda() {
         <h1>Paquetes</h1>
         <ul>
           {paquetesFiltrados.map((paquete) => (
-            <li key={paquete.id_paquete}>
-              <h2>{paquete.nombre_paquete}</h2>
+            <TarjetaPaquete paquete={paquete} key={paquete.id_paquete} />
+          ))}
+        </ul>
+        <SortBy/>
+      </div>
+    </div>
+    </div>
+  );
+}
+
+export default PagBusqueda;
+
+{/* <h2>{paquete.nombre_paquete}</h2>
               <p>Descripción: {paquete.desc_paquete}</p>
               <p>Detalle: {paquete.detalle_paquete}</p>
               <p>Fecha de inicio: {paquete.fechaInit}</p>
@@ -50,15 +62,4 @@ function PagBusqueda() {
               <p>Ciudad de destino: {paquete.ciudad_destino}</p>
               <p>Nombre del hotel: {paquete.nombre_hotel}</p>
               <p>Descripción del hotel: {paquete.desc_hh}</p>
-              <p>Servicios del hotel: {paquete.servicios_hh}</p>
-            </li>
-          ))}
-        </ul>
-        <SortBy/>
-      </div>
-    </div>
-    </div>
-  );
-}
-
-export default PagBusqueda;
+              <p>Servicios del hotel: {paquete.servicios_hh}</p> */}
