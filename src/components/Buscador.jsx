@@ -90,6 +90,7 @@ const handleBuscarClick = () => {
     // Redirige a la página de búsqueda y pasa los paquetes como un parámetro
     console.log(paquetes);
     navigate('/pag-busqueda', { state: { paquetes: paquetes }});
+    
   }
 };
 

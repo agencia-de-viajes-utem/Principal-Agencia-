@@ -24,19 +24,40 @@ const App = () => {
   const [busqueda, setBusqueda] = useState({});
   const calendarRef = useRef(null);
  
-
-  
-
   const [mostrarBusqueda, setMostrarBusqueda] = useState(false);
 
+  const [data, setData] = useState([]);
   const [options, setOptions] = useState([]);
 
+  // useEffect(() => {
+  //   // Fetch data from API and store it in the options state variable
+  //   fetch('http://localhost:8080/aeropuertos')
+  //     .then(response => response.json())
+  //     .then(data => setOptions(data))
+  //     .catch(error => console.error(error));
+  // }, []);
+
+  
   useEffect(() => {
-    // Fetch data from API and store it in the options state variable
-    fetch('http://localhost:8080/aeropuertos')
-      .then(response => response.json())
-      .then(data => setOptions(data))
-      .catch(error => console.error(error));
+    const fetchAirports = async () => {
+      try {
+        const apiUrl = import.meta.env.VITE_API_URL;
+        const response = await fetch(apiUrl + '/listaeropuertos');
+        if (!response.ok) {
+          throw new Error('Error al obtener los aeropuertos');
+        }
+        const data = await response.json();
+  
+         setOptions(data.map((airport) => airport.aeropuerto));
+         setData(data);
+  
+        // console.log("Data recuperada:", data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    fetchAirports();
   }, []);
 
   const actualizarBusquedaReciente = (nuevaBusqueda) => {

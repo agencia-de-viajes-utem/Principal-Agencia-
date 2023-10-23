@@ -19,6 +19,8 @@ function PagBusqueda() {
   };
 
   return (
+    <div>
+      <div className='d-flex justify-content-center align-items-center mb-4'> <CurrentSearch/> </div>
     <div className="PagBusqueda">
       <div className="sidebar">
         <Filtros filtrarPaquetes={filtrarPaquetes} />
@@ -47,6 +49,7 @@ function PagBusqueda() {
         </ul>
         <SortBy/>
       </div>
+    </div>
     </div>
   );
 }
