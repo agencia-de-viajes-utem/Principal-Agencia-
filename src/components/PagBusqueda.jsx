@@ -19,6 +19,7 @@ function PagBusqueda() {
     setPaquetesFiltrados(paquetesFiltrados);
   };
 
+
   return (
     <div>
       <div className='d-flex justify-content-center align-items-center mb-4'>
@@ -31,10 +32,12 @@ function PagBusqueda() {
       </div>
     <div className="PagBusqueda">
       <div className="sidebar">
+        
         <Filtros filtrarPaquetes={filtrarPaquetes} />
       </div>
       <div className="body">
         <h1>Paquetes</h1>
+        <SortBy paquetes={paquetes} setPackages={setPaquetesFiltrados} />
         <ul>
           {paquetesFiltrados.map((paquete) => (
             <TarjetaPaquete paquete={paquete} key={paquete.id_paquete} />
@@ -49,7 +52,8 @@ function PagBusqueda() {
 
 export default PagBusqueda;
 
-{/* <h2>{paquete.nombre_paquete}</h2>
+{/*         Paquetes y codigos
+              <h2>{paquete.nombre_paquete}</h2>
               <p>Descripción: {paquete.desc_paquete}</p>
               <p>Detalle: {paquete.detalle_paquete}</p>
               <p>Fecha de inicio: {paquete.fechaInit}</p>
