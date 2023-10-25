@@ -180,7 +180,8 @@ function Buscador() {
           </div>
         </div>
         {/* Fin del HTML de las nubes */}
-        <h2 className='h2-busqueda elemento-encima'> ¡Busca tu proximo viaje! </h2>
+        <div className='elementos-buscador'>
+        <h2 className='h2-busqueda elemento-encima'> ¡Busca tu viaje ahora! </h2>
         <div className="input-group elemento-encima">
           <AirportSearch
             id="input-aeropuerto-origen"
@@ -252,14 +253,14 @@ function Buscador() {
         </div>
 
         <Button
-          className="buscar"
+          className={`buscar ${isButtonDisabled ? '' : 'active'}`}
           variant="primary"
           onClick={handleBuscarClick} // Maneja el clic del botón
           disabled={isButtonDisabled} // Utiliza el estado para habilitar/deshabilitar el botón
         >
           BUSCAR
         </Button>
-
+        </div>
       </div>
       {/* {isLoading && <div>Cargando...</div>}
         {paquetesFetched && paquetes.length === 0 && (

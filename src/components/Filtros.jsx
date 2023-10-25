@@ -63,9 +63,10 @@ const Filtros = ({ filtrarPaquetes }) => {
       <Estrellas valoracion={parseInt(stars)} onStarClick={handleStarClick} labelId="stars" />
     </FormGroup>
 
-    <FormGroup>
+
+    <FormGroup className='contenedor-servicios'>
   <legend className="label">Servicios</legend>
-  <div>
+  <div className='servicios'>
     {services.map((service) => (
       <FormGroup key={service.id} check>
         <Label check for={service.id}>
@@ -82,6 +83,7 @@ const Filtros = ({ filtrarPaquetes }) => {
       </FormGroup>
     ))}
   </div>
+
 </FormGroup>
 
       <div className="botones">

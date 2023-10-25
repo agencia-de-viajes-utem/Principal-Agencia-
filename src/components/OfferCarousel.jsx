@@ -74,7 +74,7 @@ function OfferCarousel() {
                             Duración: {card.startDate} - {card.endDate}
                           </p>
                         </div>
-                        <button className="btn btn-primary">Ver Paquete</button>
+                        <button className="btn btn-primary btn-card">Ver Paquete</button>
                       </div>
                     </div>
                   </div>

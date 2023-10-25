@@ -10,11 +10,20 @@ h2{
 .contenedor-filtros{
     display: flex;
     flex-direction: column;
-    align-items: start;
+    justify-items: start;
     border: #023047 solid 3px;
     border-radius: 20px;
-    padding: 2em;
+    padding: 1em;
     margin: 0 1em 1rem;
+}
+
+
+.servicios{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    width: 80px;
 }
 
 .input{
@@ -34,9 +43,3 @@ h2{
     margin-bottom: 1em;
   }
 
-@media (max-width: 930px) {
-    .contenedor-filtros{
-        align-items: center;
-        justify-content: center;
-    }
-}

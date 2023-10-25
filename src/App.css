@@ -65,6 +65,50 @@ select{
   z-index: 2; /* Un valor más alto que las nubes */
 }
 
+.elementos-buscador{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+}
+
+.elementos-buscador .buscar{
+  margin-top: 1em;
+}
+
+label.label-input{
+  color: black;
+  font-weight: 500;
+  font-size:medium;
+  z-index: 3;
+  top:-0.80em
+}
+
+.elementos-buscador .active{
+  animation: btn-anim 1.5s linear 0s infinite normal none;
+  background-color: #E17700 !important;
+}
+
+.elementos-buscador .active:hover{
+  background-color: #E16000 !important;
+}
+
+@keyframes btn-anim {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
 #background-wrap {
   bottom: 0;
   left: 0;
@@ -97,7 +141,7 @@ select{
 .form-check{
  width: 21em;
  display: flex;
- justify-content: center !important;
+ justify-content: center;
  font-weight: 700;
 }
 
