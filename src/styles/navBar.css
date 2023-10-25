@@ -3,11 +3,29 @@
     padding: 15px;
 }
 
+.logo{
+    width: 4em;
+    transition: transform .5s ease;
+}
+
+.logo:hover{
+    transform: scale(1.2);
+}
+
+.navbar-toggler-icon{
+    stroke: white !important;
+}
+
+.navbar-toggler{
+    background-color: #FB8500 !important;
+}
+
 nav{
     margin-top: 0 !important;
-    margin-bottom: 6em !important;
+    margin-bottom: 4em !important;
     font-weight: 700;
 }
+
 
 .link-izq{
     color: white;

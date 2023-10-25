@@ -11,7 +11,7 @@ import TarjetaPaquete from './TarjetaPaquete';
 
 function PagBusqueda() {
   const location = useLocation();
-  const { paquetes, origen, destino, selectedDates, selectedMonth } = location.state;
+  const { paquetes, origen, destino, selectedDates, selectedMonth, numberOfPeople } = location.state;
   const [paquetesFiltrados, setPaquetesFiltrados] = useState(paquetes);
 
   const filtrarPaquetes = (filtro) => {
@@ -28,6 +28,7 @@ function PagBusqueda() {
             destino={destino}
             selectedDates={selectedDates}
             selectedMonth={selectedMonth}
+            numberOfPeople={numberOfPeople}
         /> 
       </div>
     <div className="PagBusqueda">

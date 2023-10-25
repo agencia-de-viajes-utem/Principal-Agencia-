@@ -1,0 +1,20 @@
+# react-front-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-agendamiento
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-agendamiento
+  template:
+    metadata:
+      labels:
+        app: front-agendamiento
+    spec:
+      containers:
+      - name: front-agendamiento
+        image: gcr.io/annular-form-401215/front-agendamiento:v3
+        ports:
+        - containerPort: 3000

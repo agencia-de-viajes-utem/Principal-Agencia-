@@ -9,11 +9,10 @@
 
   /* Estilos para el logo */
   .logo-container img {
-    width: 100px; /* Tamaño del logo */
+    width: 150px; /* Tamaño del logo */
     height: auto;
     margin-top: 2em;
   }
-  
 
   /* Estilos para los enlaces */
   .footer-links a {

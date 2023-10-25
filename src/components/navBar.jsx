@@ -7,19 +7,18 @@ import '../styles/fonts.css';
 
 function NavBar() {
     return (
-        <Navbar expand="md" style={{background:"#023047"}}>
+        <Navbar expand="md" className='navbar-lighter' style={{background:"#023047"}}>
             <div className='container-xl'>
-                <Navbar.Brand className="container-logo" href='/'>
-                    <i className="bi bi-globe-americas" style={{ color: "#FB8500" }}></i>
-                    <span style={{color:"#FB8500", marginLeft:"7px"}}>Logo</span>
+                <Navbar.Brand href='/'>
+                    <img src="/logo.png" alt="logo" className='logo'/>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="menu" />
+                <Navbar.Toggle aria-controls="menu" className='btn-colapse'/>
                 <Navbar.Collapse id="menu">
-                    <Nav className="me-auto">
-                        <Nav.Link className='link-izq' href="">
+                    <Nav className="me-auto justify-content-center">
+                        <Nav.Link className='link-izq d-flex justify-content-center' href="">
                             <i className="bi bi-briefcase-fill"></i> Paquetes
                         </Nav.Link>
-                        <Nav.Link className='link-izq' href="">
+                        <Nav.Link className='link-izq d-flex justify-content-center' href="">
                             <i className="bi bi-info-circle-fill"></i> Ayuda
                         </Nav.Link>
                     </Nav>
