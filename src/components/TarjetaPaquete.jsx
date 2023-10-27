@@ -38,8 +38,12 @@ const TarjetaPaquete = (props) => {
 
  
   const handleElegirClick = () => {
+    console.log("paquete:", paquete);
+    setpaqueteSeleccionado(paquete);
+    console.log(paqueteSeleccionado);
     navigate("/pag-detalle", { state: { paqueteSeleccionado: paquete } });
   };
+
   return (
     <div className="tarjeta-paquete">
       <div className="imagen-carrusel">
