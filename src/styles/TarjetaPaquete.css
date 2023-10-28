@@ -3,8 +3,8 @@
 .tarjeta-paquete {
   display: flex;
   justify-content: space-between; /* Espacio entre imágenes y contenido */
-  width: 90%; /* Ancho de 20 cm */
-  height: 20%;
+  width: 100%; /* Ancho de 20 cm */
+  height: 20em;
   background-color: #fff; 
   color: #023047;
   border-radius: 10px; /* Esquinas redondeadas */
@@ -16,11 +16,15 @@
 
 /* Estilo para el carrusel de imágenes */
 .imagen-carrusel {
-  width: 14em; /* Ancho del carrusel (40% de la tarjeta) */
-  height: 14em; /* Altura del carrusel igual a la de la tarjeta */
+  width: 15em; /* Ancho del carrusel (40% de la tarjeta) */
+  height: 15em; /* Altura del carrusel igual a la de la tarjeta */
   display: flex;
   flex-direction: column;
   justify-content: center; /* Alineación vertical en el centro */ 
+}
+
+.servicios{
+  width: 80%;
 }
 
 /* Estilo para las imágenes en el carrusel */
@@ -28,7 +32,7 @@
   width: 100%; /* Ancho al 100% del contenedor del carrusel */
   height: auto; /* Altura automática para mantener la proporción */
   max-height: 100%; /* Máxima altura igual al 100% del contenedor */
-  object-fit: cover; /* Ajustar la imagen para llenar el espacio sin distorsionarla */
+  object-fit:contain; /* Ajustar la imagen para llenar el espacio sin distorsionarla */
 }
 
 /* Estilo para la información */

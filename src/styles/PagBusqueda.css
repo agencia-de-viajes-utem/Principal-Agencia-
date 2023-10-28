@@ -1,5 +1,5 @@
 .PagBusqueda {
-  width: 90vw;
+  width: 90%;
   margin: auto;
   display: grid;
   grid:
@@ -14,7 +14,8 @@
 
 .body {
   grid-area: body;
-  margin-left: 5em; /* Elimina los márgenes en .body */
+  width: 100%;
+
 }
 
 @media (max-width: 930px) {
@@ -32,6 +33,11 @@
   }
   .body{
     margin: 0;
+    
   }
 
+}
+
+.lista-paquetes{
+  width: 90%;
 }

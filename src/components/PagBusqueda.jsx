@@ -39,7 +39,7 @@ function PagBusqueda() {
       <div className="body">
         <h1>Paquetes</h1>
         <SortBy paquetes={paquetes} setPackages={setPaquetesFiltrados} />
-        <ul>
+        <ul className='lista-paquetes'>
           {paquetesFiltrados.map((paquete) => (
             <TarjetaPaquete paquete={paquete} key={paquete.id_paquete} />
           ))}
