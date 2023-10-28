@@ -219,6 +219,7 @@ function Buscador() {
                     selectRange={showMonthView ? false : true}
                     view={showMonthView ? "year" : undefined}
                     onClickMonth={handleMonthClick}
+                    minDate={new Date()}
                   />
                   <label className='form-check'>
                     <Form.Check
