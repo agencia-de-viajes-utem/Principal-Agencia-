@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Buscador from './components/Buscador';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PagBusqueda from './components/PagBusqueda';
+import PagDetalle from './components/PagDetalle.jsx'
 
 function App() {
  
@@ -19,7 +20,8 @@ function App() {
 
         <Route path="/" element={<Buscador />} />
         <Route path="/pag-busqueda" element={<PagBusqueda />} />
-        
+        <Route path='/pag-detalle' element={<PagDetalle/>}/>
+
       </Routes>
       <div className='container-footer'>
         <Footer />

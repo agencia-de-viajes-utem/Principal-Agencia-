@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { Carousel } from "react-responsive-carousel";
+import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Importa FontAwesome
 import {
@@ -11,6 +13,8 @@ import {
 }from "@fortawesome/free-solid-svg-icons";
 import "../styles/TarjetaPaquete.css";
 
+
+
 const serviciosIconos = {
   Restaurante: faUtensils,
   WiFi: faWifi,
@@ -21,7 +25,9 @@ const serviciosIconos = {
 const TarjetaPaquete = (props) => {
   const { paquete } = props;
   const estrellas = [];
-
+  const navigate = useNavigate();
+  const [paqueteSeleccionado, setpaqueteSeleccionado] = useState([""]);
+  
   // Crear un array con estrellas según la cantidad proporcionada en paquete.estrellas
   // for (let i = 0; i < paquete.estrellas; i++) {
   //   estrellas.push(
@@ -29,6 +35,14 @@ const TarjetaPaquete = (props) => {
   //   );
   // }
   // const precioTotal = paquete.precioPorPersona * paquete.numeroPersonas;
+
+ 
+  const handleElegirClick = () => {
+    console.log("paquete:", paquete);
+    setpaqueteSeleccionado(paquete);
+    console.log(paqueteSeleccionado);
+    navigate("/pag-detalle", { state: { paqueteSeleccionado: paquete } });
+  };
 
   return (
     <div className="tarjeta-paquete">
@@ -64,7 +78,7 @@ const TarjetaPaquete = (props) => {
   
     </div>
     <div className="Boton">
-      <button className="elegir-button">Elegir</button>
+      <button className="elegir-button" onClick={handleElegirClick} >Elegir</button>
     </div>
     </div>
     </div>
