@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useLocation } from 'react-router-dom';
+import DescripciónPaquete from "./DescripcionPaquete";
 
 const PagDetalle = (props) => {
   const location = useLocation();
@@ -26,7 +27,9 @@ const PagDetalle = (props) => {
       <p>Nombre del hotel: {paqueteSeleccionado.nombre_hotel}</p>
       <p>Descripción del hotel: {paqueteSeleccionado.desc_hh}</p>
       <p>Servicios del hotel: {paqueteSeleccionado.servicios_hh}</p>
+      <DescripciónPaquete/>
     </div>
+
   );
 };
 
