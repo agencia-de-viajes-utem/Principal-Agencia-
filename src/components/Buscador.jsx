@@ -151,7 +151,7 @@ function Buscador() {
     const year = value.getFullYear();
     const month = String(value.getMonth() + 1).padStart(2, '0');
     setSelectedMonth(`${year}-${month}`);
-    console.log(month);
+
   };
 
   const formatDate = (date) => {
@@ -198,6 +198,7 @@ function Buscador() {
               id='input-fecha'
               className="elemento-encima rbt-input-main form-control rbt-input"
               type="text"
+              autocomplete="off"
               placeholder="Fecha Origen - Salida"
               defaultValue={
                 selectedDates.length === 2
