@@ -4,10 +4,9 @@ import 'react-calendar/dist/Calendar.css';
 import './utils/fonts.css';
 import NavBar from './utils/Header/navBar';
 import Footer from './utils/Footer/Footer';
-import Buscador from './components/Buscador';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PagBusqueda from './components/PagBusqueda';
-import PagDetalle from './components/PagDetalle.jsx'
+import { routes } from '/src/routes/Routes.jsx';
+
 
 function App() {
   return (
@@ -15,12 +14,14 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-
-        <Route path="/" element={<Buscador />} />
-        <Route path="/pag-busqueda" element={<PagBusqueda />} />
-        <Route path='/pag-detalle' element={<PagDetalle/>}/>
-
-      </Routes>
+      {routes.map((route, index) => (
+          <Route
+            key={index}
+            path={route.path}
+            element={<route.component />}  // Corregido aquí
+          />
+        ))}
+         </Routes>
       <div className='container-footer'>
       <Footer />
       </div>

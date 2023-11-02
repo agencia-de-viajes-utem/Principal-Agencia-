@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import '../utils/fonts.css';
-import AirportSearch from './AirportSearch/AirportSearch';
+import '../../utils/fonts.css';
+import AirportSearch from '../../components/AirportSearch/AirportSearch.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import OfferCarouesel from './OfferCarousel/OfferCarousel.jsx';
+import OfferCarouesel from '../../components/OfferCarousel/OfferCarousel.jsx';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate, Link } from 'react-router-dom';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
-
+import "./Buscador.css"
 
 function Buscador() {
 
