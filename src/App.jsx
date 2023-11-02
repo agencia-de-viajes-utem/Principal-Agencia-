@@ -41,7 +41,7 @@ function App() {
       const response = await fetch(`https://geocode.xyz/${latitud},${longitud}?json=1`);
       if (response.ok) {
         const data = await response.json();
-        return data.city;
+        return data.poi.addr_city;
       } else {
         throw new Error('Error al obtener el país desde las coordenadas.');
       }
