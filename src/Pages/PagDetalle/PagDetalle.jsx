@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useLocation } from 'react-router-dom';
-import DescripciónPaquete from "./DescripcionPaquete";
+import DescripciónPaquete from "../../components/DescripcionPaquete";
 
 const PagDetalle = (props) => {
   const location = useLocation();

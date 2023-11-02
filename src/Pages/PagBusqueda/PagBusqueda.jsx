@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-
-import Filtros from './Filtros';
-import SortBy from './SortBy'
-import "../App.css"
+import Filtros from '../../components/Filtros.jsx';
+import SortBy from '../../components/SortBy.jsx'
+import "../../../App.css"
 import "../styles/PagBusqueda.css";
-import CurrentSearch from './CurrentSearch.jsx'
-import TarjetaPaquete from './TarjetaPaquete';
+import CurrentSearch from '../../components/CurrentSearch.jsx'
+import TarjetaPaquete from '../../components/TarjetaPaquete.jsx';
 
 
 function PagBusqueda() {
