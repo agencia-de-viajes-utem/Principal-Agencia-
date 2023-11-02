@@ -49,19 +49,3 @@ function PagBusqueda() {
 }
 
 export default PagBusqueda;
-
-{/*         Paquetes y codigos
-              <h2>{paquete.nombre_paquete}</h2>
-              <p>Descripción: {paquete.desc_paquete}</p>
-              <p>Detalle: {paquete.detalle_paquete}</p>
-              <p>Fecha de inicio: {paquete.fechaInit}</p>
-              <p>Fecha de fin: {paquete.fechaFin}</p>
-              <p>Cantidad de días: {paquete.cant_dias}</p>
-              <p>Precio del viaje: ${paquete.pr_viaje}</p>
-              <p>Precio por noche: ${paquete.pr_noche}</p>
-              <p>Precio total: ${paquete.pr_total}</p>
-              <p>Ciudad de origen: {paquete.ciudad_origen}</p>
-              <p>Ciudad de destino: {paquete.ciudad_destino}</p>
-              <p>Nombre del hotel: {paquete.nombre_hotel}</p>
-              <p>Descripción del hotel: {paquete.desc_hh}</p>
-              <p>Servicios del hotel: {paquete.servicios_hh}</p> */}

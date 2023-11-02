@@ -1,19 +1,22 @@
 import React from "react";
 import { useParams, useLocation } from 'react-router-dom';
 import DescripciónPaquete from "../../components/DescripcionPaquete/DescripcionPaquete";
+import "./PagDetalle.css";
+import VueloAlojo from "../../components/InfoVueloAlojo/InfoVueloAlojo";
 
 const PagDetalle = (props) => {
   const location = useLocation();
-  const { paqueteSeleccionado } = location.state
+  // const { paqueteSeleccionado } = location.state
 
   // Check if paqueteSeleccionado is defined before accessing properties
-  if (!paqueteSeleccionado) {
-    return <div>No package selected</div>;
-  }
+  // if (!paqueteSeleccionado) {
+  //   return <div>No package selected</div>;
+  // }
 
   return (
-    <div>
-      <h2>{paqueteSeleccionado.nombre_paquete}</h2>
+    <div className="PagDetalle">
+      
+      {/* <h2>{paqueteSeleccionado.nombre_paquete}</h2>
       <p>Descripción: {paqueteSeleccionado.desc_paquete}</p>
       <p>Detalle: {paqueteSeleccionado.detalle_paquete}</p>
       <p>Fecha de inicio: {paqueteSeleccionado.fechaInit}</p>
@@ -26,8 +29,9 @@ const PagDetalle = (props) => {
       <p>Ciudad de destino: {paqueteSeleccionado.ciudad_destino}</p>
       <p>Nombre del hotel: {paqueteSeleccionado.nombre_hotel}</p>
       <p>Descripción del hotel: {paqueteSeleccionado.desc_hh}</p>
-      <p>Servicios del hotel: {paqueteSeleccionado.servicios_hh}</p>
+      <p>Servicios del hotel: {paqueteSeleccionado.servicios_hh}</p> */}
       <DescripciónPaquete/>
+      <VueloAlojo/>
     </div>
 
   );

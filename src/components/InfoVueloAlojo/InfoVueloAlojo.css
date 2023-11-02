@@ -1,0 +1,56 @@
+.contenedor-info{
+    display: flex;
+    padding: 1em;
+    gap: 4%;
+    justify-content: center;
+}
+
+.alojamiento , .vuelo{
+    display: flex;
+    align-items: center;
+    padding: .5em;
+    width: 100em;
+    height: auto;
+    justify-content: space-around;
+    border-radius: 1em;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
+    border: #9b9b9b 1px solid;
+
+}
+
+.icono{
+    font-size: 5em;
+}
+
+.info-alojamiento h3, .info-vuelo h3{
+    font-size: 2em;
+    font-weight: 600;
+}
+.p-pequeño{
+    
+    font-size: medium;
+}
+.p-medio{
+    font-size: larger;
+}
+
+@media (max-width: 742px) {
+    .contenedor-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 80%;
+        min-width: 80vw;
+        margin: 0 auto;
+        margin-left: -1em;
+        max-width: 80vw;
+        gap: 1.4em;
+    }
+    .alojamiento, .vuelo {
+        width: auto;
+        gap: 0;
+        justify-content: space-between;
+    }
+}

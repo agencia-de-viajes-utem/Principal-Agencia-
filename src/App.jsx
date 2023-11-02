@@ -71,6 +71,7 @@ function App() {
   } else {
     console.error('Geolocalización no soportada por este navegador.');
   }
+  
   return (
     <Router>
     <div className="App">
