@@ -1,6 +1,5 @@
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import './App.css';
 import 'react-calendar/dist/Calendar.css';
 import './styles/fonts.css'
 import NavBar from './components/navBar';
@@ -11,7 +10,6 @@ import PagBusqueda from './components/PagBusqueda';
 import PagDetalle from './components/PagDetalle.jsx'
 
 function App() {
- 
   return (
     <Router>
     <div className="App">
@@ -24,7 +22,7 @@ function App() {
 
       </Routes>
       <div className='container-footer'>
-        <Footer />
+      <Footer />
       </div>
     </div>
     </Router>
