@@ -1,6 +1,5 @@
-// Estrellas.js
 import React, { useState } from 'react';
-import '../styles/Estrellas.css';
+import './Estrellas.css';
 
 const Estrellas = ({ valoracion, onStarClick, labelId }) => {
   const [hoveredStar, setHoveredStar] = useState(null);

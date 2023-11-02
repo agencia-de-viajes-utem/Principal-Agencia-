@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/SortBy.css';
+import './SortBy.css';
 
 function SortBy ({ paquetes, setPackages }) {
   

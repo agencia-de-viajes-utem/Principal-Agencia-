@@ -1,0 +1,51 @@
+.container-logo{
+    font-size: x-large;
+    padding: 15px;
+}
+
+.logo{
+    width: 4em;
+    transition: transform .5s ease;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+.navbar-toggler-icon{
+    stroke: white !important;
+}
+
+.navbar-toggler{
+    background-color: #FB8500 !important;
+}
+
+nav{
+    margin-top: 0 !important;
+    margin-bottom: 4em !important;
+    font-weight: 700;
+}
+
+
+.link-izq{
+    color: white;
+    margin: 0 20px; 
+}
+
+.link-izq:hover{
+    color: #e17700;
+}
+
+.btn{
+    color: white !important;
+    background-color: #FB8500;
+    font-weight: 700;
+}
+
+.btn:hover{
+    background-color: #e17700 !important;
+}
+
+.bi{
+    margin-right: 3px;
+}

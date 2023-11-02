@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-import SortBy from './SortBy';
-import '../styles/fonts.css';
-import '../styles/Filtros.css'
+import '../../utils/fonts.css';
+import './Filtros.css';
 
-import Estrellas from './Estrellas';
+import Estrellas from '../Estrellas/Estrellas';
 
 const Filtros = ({ filtrarPaquetes }) => {
   const [stars, setStars] = useState('');

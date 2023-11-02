@@ -1,0 +1,62 @@
+/* Estilos para el footer */
+.custom-footer {
+    background-color: #023047; /* Color de fondo del footer */
+    color: #fff; /* Color del texto del footer */
+    padding: 20px; /* Espaciado interno del footer */
+    text-align: center; /* Alineación del contenido del footer */
+    margin-top: 2em;
+  }
+
+  /* Estilos para el logo */
+  .logo-container img {
+    width: 150px; /* Tamaño del logo */
+    height: auto;
+    margin-top: 2em;
+  }
+
+  /* Estilos para los enlaces */
+  .footer-links a {
+    color: #fff; /* Color de los enlaces */
+    margin: 0 20px; /* Espaciado entre los enlaces */
+    text-decoration: none; /* Quitar subrayado de los enlaces */
+    font-size: 16px; /* Tamaño del texto de los enlaces */
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s;
+  }
+  
+  .footer-links a:hover{
+    color: #FB8500;
+  } 
+
+  /* Estilos para el texto de derechos reservados */
+  .rights p {
+    font-size: 14px; /* Tamaño del texto de derechos reservados */
+    font-family: 'Poppins', sans-serif;
+  }
+  
+nav.footer-links{
+    margin: 2em 0 !important;
+  }
+
+  @media (max-width: 544px) {
+      .footer-links a{
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
+      }
+  }
+
+  /* Estilos para los íconos de redes sociales (si los agregas) */
+  /* .social-icons {
+    margin-top: 20px; Espaciado superior de los íconos de redes sociales
+  }
+  
+  .social-icons a {
+    margin: 0 10px; Espaciado entre los íconos
+  }
+  
+  .social-icons img {
+    width: 24px; Tamaño de los íconos de redes sociales
+    height: 24px;
+  } */
+  

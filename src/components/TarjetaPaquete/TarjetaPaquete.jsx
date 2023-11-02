@@ -11,7 +11,7 @@ import {
   faParking,
   faStar,
 }from "@fortawesome/free-solid-svg-icons";
-import "../styles/TarjetaPaquete.css";
+import "./TarjetaPaquete.css";
 
 
 

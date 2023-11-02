@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/OfferCarousel.css';
+import './OfferCarousel.css';
 import Carousel from 'react-bootstrap/Carousel';
 
 function OfferCarousel() {
@@ -31,7 +31,7 @@ function OfferCarousel() {
   }, []);
 
   useEffect(() => {
-    fetch('src/mocks/tarjetas.json')
+    fetch('src/components/OfferCarousel/tarjetas.json')
       .then((response) => response.json())
       .then((data) => setCards(data))
       .catch((error) => console.error('Error:', error));

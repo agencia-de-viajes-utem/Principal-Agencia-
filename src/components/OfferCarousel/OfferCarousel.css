@@ -1,0 +1,124 @@
+.offer {
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.carousel {
+  border-radius: 10px;
+}
+
+.card {
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  width: 18rem; /* Ajusta el ancho de las tarjetas */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra las tarjetas en el carrusel */
+}
+
+.card-img-top {
+  max-height: 300px;
+  max-width: 100%;
+}
+
+.ida{
+  background-color: #E17700 !important;
+}
+
+h1{
+  font-weight: 700;
+}
+
+.btn-card {
+  background-color: #E17700;
+  border: none;
+  color: #fff;
+  margin-top: 10px;
+  transition: 0.2s ease !important;
+
+}
+
+.btn-card:hover {
+  background-color: #E16000 !important;
+  animation: myAnim 6s ease infinite normal none;
+}
+
+@keyframes myAnim {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+
+	10%,
+	30%,
+	50%,
+	70% {
+		transform: translateY(-2px);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: translateY(2px);
+	}
+
+	80% {
+		transform: translateY(3.4px);
+	}
+
+	90% {
+		transform: translateY(-3.4px);
+	}
+}
+
+.Information {
+  padding: 0px 0px 0px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+Information p {
+  margin: 0px 0px 0px 0px;
+}
+
+.cardtop p {
+  margin: 0px 10px 0px 0px;
+}
+
+.carousel-control-prev-icon {
+ 
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='f8f9fa' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='f8f9fa' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-prev {
+  left: -60px; /* Ajusta la posición izquierda del botón "anterior" */
+}
+
+.carousel-control-next {
+  right: -50px; /* Ajusta la posición derecha del botón "siguiente" */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: transparent; /* Fondo transparente para los botones de control */
+  width: 40px; /* Ajusta el ancho de los botones */
+  height: 40px; /* Ajusta la altura de los botones */
+  border-radius: 50%;
+  top: 45%; /* Ajusta la posición vertical de los botones */
+  transform: translateY(-50%);
+  z-index: 2; /* Coloca los botones sobre las tarjetas */
+}
+
+@media (max-width: 500px) {
+  .carousel-control-prev{
+    left: -35px;
+  }
+  .carousel-control-next{
+    right: -25px;
+  }
+}
