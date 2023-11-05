@@ -9,7 +9,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate, Link } from 'react-router-dom';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
+
 import "./Buscador.css"
+import { fetchPaquetesAPI } from '../../api/paquetesFechas.js'
 
 function Buscador() {
 
@@ -28,7 +30,9 @@ function Buscador() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const navigate = useNavigate();
-
+  const fechaInicio = selectedDates[0]; // Primera fecha seleccionada
+  const fechaFin = selectedDates[1];
+  
   useEffect(() => {
     if (
       origen.length !== 0 &&
@@ -45,32 +49,16 @@ function Buscador() {
 
   const fetchPaquetes = async () => {
     setIsLoading(true);
+    const fechaInicio = selectedDates[0]; // Primera fecha seleccionada
+    const fechaFin = selectedDates[1]; // Segunda fecha seleccionada (si se selecciona un rango de fechas)
     try {
-      const apiUrl = import.meta.env.VITE_API_URL;
-      let apiEndpoint = '';
-      if (showMonthView) {
-        // Vista de mes
-        const mesSeleccionado = selectedMonth.split('-')[1];
-        apiEndpoint = `/paquetes/mes?origen=${origen[0].id}&destino=${destino[0].id}&mes=${mesSeleccionado}`;
-      } else {
-        // Vista de días
-        const formattedDates = selectedDates.map((date) => {
-          date.setHours(0, 0, 0, 0);
-          const year = date.getFullYear();
-          const month = String(date.getMonth() + 1).padStart(2, '0');
-          const day = String(date.getDate()).padStart(2, '0');
-          return `${year}-${month}-${day}`;
-        });
-        const fechaInicio = formattedDates[0];
-        const fechaFin = formattedDates[formattedDates.length - 1];
-        apiEndpoint = `/paquetes?origen=${origen[0].id}&destino=${destino[0].id}&fechaInicio=${fechaInicio}&fechaFin=${fechaFin}`;
-      }
-
-      const response = await fetch(apiUrl + apiEndpoint);
-      if (!response.ok) {
-        throw new Error('Error en la solicitud');
-      }
-      const data = await response.json();
+      const data = await fetchPaquetesAPI(
+        origen[0].id,
+        destino[0].id,
+        fechaInicio,
+        fechaFin
+      );
+  
       if (data.length === 0) {
         alert('No hay paquetes disponibles para la selección realizada.');
       } else {
@@ -82,29 +70,37 @@ function Buscador() {
       setIsLoading(false);
       setPaquetesFetched(true);
     }
-
-    console.log("Paquetes:", paquetes);
   };
 
   const handleBuscarClick = () => {
-    // Verifica si los campos están llenos
-    if (origen.length !== 0 && destino.length !== 0 && (selectedMonth.length > 0 || selectedDates.length > 0) && numberOfPeople !== '') {
-      // Redirige a la página de búsqueda y pasa los paquetes como un parámetro
-      console.log(paquetes);
-      navigate('/pag-busqueda', {
-        state:
-        {
-          paquetes: paquetes,
-          origen: origen,
-          destino: destino,
-          selectedMonth: selectedMonth,
-          selectedDates: selectedDates,
-          numberOfPeople: numberOfPeople,
-        }
-      });
-
+    if (origen.length !== 0 && destino.length !== 0 && numberOfPeople !== '') {
+      if (showMonthView) {
+        // Si el usuario seleccionó un mes, pasa fechaInicio y fechaFin como null
+        navigate('/Busqueda', {
+          state: {
+            paquetes: paquetes,
+            origen: origen,
+            destino: destino,
+            fechaInicio: null,
+            fechaFin: null,
+            numberOfPeople: numberOfPeople,
+          },
+        });
+      } else {
+        navigate('/Busqueda', {
+          state: {
+            paquetes: paquetes,
+            origen: origen,
+            destino: destino,
+            fechaInicio: fechaInicio,
+            fechaFin: fechaFin,
+            numberOfPeople: numberOfPeople,
+          },
+        });
+      }
     }
   };
+  
 
   // Event listener para cerrar el calendario cuando se hace clic fuera de él
   useEffect(() => {

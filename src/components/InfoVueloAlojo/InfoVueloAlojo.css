@@ -17,7 +17,6 @@
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
     border: #9b9b9b 1px solid;
-
 }
 
 .icono{
@@ -29,7 +28,6 @@
     font-weight: 600;
 }
 .p-pequeño{
-    
     font-size: medium;
 }
 .p-medio{

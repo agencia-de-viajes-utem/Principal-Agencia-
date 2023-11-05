@@ -41,7 +41,7 @@ const TarjetaPaquete = (props) => {
     console.log("paquete:", paquete);
     setpaqueteSeleccionado(paquete);
     console.log(paqueteSeleccionado);
-    navigate("/pag-detalle", { state: { paqueteSeleccionado: paquete } });
+    navigate("/Detalle", { state: { paqueteSeleccionado: paquete } });
   };
 
   return (
@@ -56,11 +56,11 @@ const TarjetaPaquete = (props) => {
         </Carousel> */}
       </div>
       <div className="informacion">
-        <h2>{paquete.nombre_paquete}</h2>
-        <p className="Descripcion">{paquete.desc_hh}</p>
+        <h2>{paquete.nombre}</h2>
+        <p className="Descripcion">{paquete.descripcion}</p>
         {/* <div className="estrellas">{estrellas}</div> */}
           <div className="servicios">
-            <p>{paquete.servicios_hh}</p>
+            <p>{paquete.info_paquetefecha.servicios_habitacion}</p>
 {/* 
             {paquete.servicios.map((servicio, index) => (
               <span key={index} className="icono-servicio">
@@ -74,7 +74,7 @@ const TarjetaPaquete = (props) => {
           <div className="linea-divisoria"></div> 
         </div>
         <div className="precios-container">
-  <p className="precio">Total: {paquete.pr_total}</p>
+  <p className="precio">Total: {paquete.precio_noche}</p>
   
     </div>
     <div className="Boton">
