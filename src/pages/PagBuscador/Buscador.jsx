@@ -54,7 +54,8 @@ function Buscador() {
         origen[0].id,
         destino[0].id,
         fechaInicio,
-        fechaFin
+        fechaFin,
+        numberOfPeople
       );
   
       if (data.length === 0) {
@@ -71,6 +72,7 @@ function Buscador() {
   };
 
   const handleBuscarClick = () => {
+
     if (origen.length !== 0 && destino.length !== 0 && selectedDates.length === 2 && numberOfPeople !== '') {
       console.log('Buscando paquetes...')
       navigate('/Busqueda', {
@@ -200,7 +202,7 @@ function Buscador() {
                     selectRange={showMonthView ? false : true}
                     view={showMonthView ? "year" : undefined}
                     onClickMonth={handleMonthClick}
-                    minDate={new Date()}
+                    // minDate={new Date()}
                   />
                   <label className='form-check'>
                     <Form.Check
