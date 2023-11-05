@@ -30,9 +30,7 @@ function Buscador() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const navigate = useNavigate();
-  const fechaInicio = selectedDates[0]; // Primera fecha seleccionada
-  const fechaFin = selectedDates[1];
-  
+
   useEffect(() => {
     if (
       origen.length !== 0 &&
@@ -73,31 +71,18 @@ function Buscador() {
   };
 
   const handleBuscarClick = () => {
-    if (origen.length !== 0 && destino.length !== 0 && numberOfPeople !== '') {
-      if (showMonthView) {
-        // Si el usuario seleccionó un mes, pasa fechaInicio y fechaFin como null
-        navigate('/Busqueda', {
-          state: {
-            paquetes: paquetes,
-            origen: origen,
-            destino: destino,
-            fechaInicio: null,
-            fechaFin: null,
-            numberOfPeople: numberOfPeople,
-          },
-        });
-      } else {
-        navigate('/Busqueda', {
-          state: {
-            paquetes: paquetes,
-            origen: origen,
-            destino: destino,
-            fechaInicio: fechaInicio,
-            fechaFin: fechaFin,
-            numberOfPeople: numberOfPeople,
-          },
-        });
-      }
+    if (origen.length !== 0 && destino.length !== 0 && selectedDates.length === 2 && numberOfPeople !== '') {
+      console.log('Buscando paquetes...')
+      navigate('/Busqueda', {
+        state: {
+          paquetes: paquetes,
+          origen: origen,
+          destino: destino,
+          fechaInicio: selectedDates[0],
+          fechaFin: selectedDates[1],
+          numberOfPeople: numberOfPeople,
+        },
+      });
     }
   };
   
