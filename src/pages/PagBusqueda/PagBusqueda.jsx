@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Filtros from '../../components/Filtros/Filtros';
 import SortBy from '../../components/SortBy/SortBy';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { apiCall } from '../../api/paquetes.js'
