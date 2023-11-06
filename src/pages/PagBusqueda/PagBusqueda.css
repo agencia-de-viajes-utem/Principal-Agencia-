@@ -1,19 +1,12 @@
 .PagBusqueda {
   width: 90%;
   margin: auto;
-  display: grid;
-  grid:
-    "sidebar body" 1fr
-    / 1fr 3fr;
+  display: flex;
   gap: 2em;
 }
 
-.sidebar {
-  grid-area: sidebar;
-}
 
 .body {
-  grid-area: body;
   width: 100%;
 
 }
@@ -28,9 +21,6 @@
     gap: 4em;
   }
 
-  .sidebar, .body{
-    width: 80%;
-  }
   .body{
     margin: 0;
     
@@ -39,5 +29,18 @@
 }
 
 .lista-paquetes{
-  width: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.botones{
+  display: flex;
+  align-items: center;
+}
+
+.loading-container {
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
 }

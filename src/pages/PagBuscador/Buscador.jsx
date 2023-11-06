@@ -7,11 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import OfferCarouesel from '../../components/OfferCarousel/OfferCarousel.jsx';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 
 import "./Buscador.css"
-import { fetchPaquetesAPI } from '../../api/paquetesFechas.js'
+
 
 function Buscador() {
 
@@ -19,20 +19,16 @@ function Buscador() {
   const [destino, setDestino] = useState([]);
   const [selectedDates, setSelectedDates] = useState(new Date());
   const [paquetes, setPaquetes] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [showMonthView, setShowMonthView] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState([]);
   const [paquetesFetched, setPaquetesFetched] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
   const calendarRef = useRef(null);
   const [numberOfPeople, setNumberOfPeople] = useState('');
-  const [urlPaquete, setUrlPaquete] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const navigate = useNavigate();
-  const fechaInicio = selectedDates[0]; // Primera fecha seleccionada
-  const fechaFin = selectedDates[1];
-  
+
   useEffect(() => {
     if (
       origen.length !== 0 &&
@@ -41,63 +37,28 @@ function Buscador() {
       numberOfPeople !== '' // Comprueba si se ha seleccionado un número de personas
     ) {
       setIsButtonDisabled(false);
-      fetchPaquetes();
     } else {
       setIsButtonDisabled(true);
     }
   }, [origen, destino, selectedMonth, selectedDates, numberOfPeople]);
 
-  const fetchPaquetes = async () => {
-    setIsLoading(true);
-    const fechaInicio = selectedDates[0]; // Primera fecha seleccionada
-    const fechaFin = selectedDates[1]; // Segunda fecha seleccionada (si se selecciona un rango de fechas)
-    try {
-      const data = await fetchPaquetesAPI(
-        origen[0].id,
-        destino[0].id,
-        fechaInicio,
-        fechaFin
-      );
-  
-      if (data.length === 0) {
-        alert('No hay paquetes disponibles para la selección realizada.');
-      } else {
-        setPaquetes(data);
-      }
-    } catch (error) {
-      console.error('Error al cargar los paquetes:', error);
-    } finally {
-      setIsLoading(false);
-      setPaquetesFetched(true);
-    }
-  };
 
-  const handleBuscarClick = () => {
+
+  const handleBuscarClick = async () => {
     if (origen.length !== 0 && destino.length !== 0 && numberOfPeople !== '') {
-      if (showMonthView) {
-        // Si el usuario seleccionó un mes, pasa fechaInicio y fechaFin como null
-        navigate('/Busqueda', {
-          state: {
-            paquetes: paquetes,
-            origen: origen,
-            destino: destino,
-            fechaInicio: null,
-            fechaFin: null,
-            numberOfPeople: numberOfPeople,
-          },
-        });
-      } else {
-        navigate('/Busqueda', {
-          state: {
-            paquetes: paquetes,
-            origen: origen,
-            destino: destino,
-            fechaInicio: fechaInicio,
-            fechaFin: fechaFin,
-            numberOfPeople: numberOfPeople,
-          },
-        });
-      }
+      const personas = parseInt(numberOfPeople, 10); // Convierte a numero
+      //Almacena los parametros en un estado local
+      const parametrosBusqueda = {
+        origen,
+        destino,
+        selectedDates,
+        numberOfPeople: personas,
+      };
+
+      navigate('/Busqueda', {
+        state: parametrosBusqueda,
+      });
+
     }
   };
   
@@ -193,7 +154,7 @@ function Buscador() {
               id='input-fecha'
               className="elemento-encima rbt-input-main form-control rbt-input"
               type="text"
-              autocomplete="off"
+              autoComplete="off"
               placeholder="Fecha Origen - Salida"
               defaultValue={
                 selectedDates.length === 2
@@ -215,7 +176,7 @@ function Buscador() {
                     selectRange={showMonthView ? false : true}
                     view={showMonthView ? "year" : undefined}
                     onClickMonth={handleMonthClick}
-                    minDate={new Date()}
+                    //minDate={new Date()}
                   />
                   <label className='form-check'>
                     <Form.Check
