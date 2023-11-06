@@ -60,7 +60,7 @@ const TarjetaPaquete = (props) => {
         <p className="Descripcion">{paquete.descripcion}</p>
         {/* <div className="estrellas">{estrellas}</div> */}
           <div className="servicios">
-            <p>{paquete.info_paquetefecha.servicios_habitacion}</p>
+            <p>{paquete.info_paquete.servicios_habitacion}</p>
 {/* 
             {paquete.servicios.map((servicio, index) => (
               <span key={index} className="icono-servicio">

@@ -33,9 +33,9 @@ function SortBy ({ paquetes, setPackages }) {
       
         
 
-        return(<div className="mt-2 mx-2" style={{ width:'60%'}}>
-                    <div class="btn-group" role="group">
-        <button type="button" class="btn btn-warning dropdown-toggle mt-2 mb-2" data-bs-toggle="dropdown" aria-expanded="false">
+      return(<div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             Ordenar Por
         </button>
         <ul class="dropdown-menu">
