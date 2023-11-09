@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Filtros from '../../components/Filtros/Filtros';
 import SortBy from '../../components/SortBy/SortBy';
-import { Modal} from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { apiCall } from '../../api/paquetes.js'
@@ -54,21 +54,21 @@ function PagBusqueda() {
           setPaquetesFiltrados(paquetesEncontrados);
         } catch (error) {
           console.error('Error al buscar paquetes', error);
-        } finally{
+        } finally {
           setIsLoading(false);
         }
       }
     };
 
     fetchData();
-  
+
   }, [origen, destino, selectedDates, numberOfPeople]);
 
   return (
     <div>
 
       <div className='d-flex justify-content-center align-items-center mb-4'>
-       <CurrentSearch
+        <CurrentSearch
           origen={origen}
           destino={destino}
           selectedDates={selectedDates}
@@ -91,10 +91,10 @@ function PagBusqueda() {
               <ul className='lista-paquetes'>
                 {paquetesFiltrados.map((paquete) => (
                   <TarjetaPaquete paquete={paquete} key={paquete.id} />
-        ))}
-      </ul>
-    )}
-  </div>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
 
